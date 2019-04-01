@@ -1,0 +1,39 @@
+.navbar{
+    background-color: white;
+}
+
+.carousel-image{
+    height: 40rem;
+}
+
+.about{
+    margin-top: 10rem;
+}
+
+.about h2{
+    font-size: 34px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-weight: bold;
+    color: #000;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.about h2:before {
+    position: absolute;
+    bottom: 0;
+    content: "";
+    width: 50px;
+    margin-left: -25px;
+    height: 2px;
+    left: 50%;
+    background: #FF5126;
+}
+
+.about p {
+    font-size: 20px;
+    line-height: 1.5;
+    color: #1a1a1a;
+    margin: 0 12rem 10rem 12rem;
+}
