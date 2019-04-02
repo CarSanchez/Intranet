@@ -97,8 +97,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <embed src="http://soportetecnico/" frameborder="0" width="100%" height="400px">
-                    <!--<embed src="http://sistemas1/os/" frameborder="0" width="100%" height="400px">-->
+                    <embed src="http://intranet/soporte" frameborder="0" width="100%" height="400px">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
