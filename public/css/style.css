@@ -1,3 +1,9 @@
+/* General */
+::selection{
+    color: #fff;
+    background: #FF5126;
+}
+
 /* NavBar */
 .navbar{
     background-color: white;
@@ -81,4 +87,44 @@
     font-size: 20px;
     line-height: 1.5;
     color: #1a1a1a;
+}
+
+.img-responsive{
+    border-radius: 10px;
+}
+
+/* Contacto footer */
+#footer{
+    background: rgb(85, 85, 85);
+    height: 30rem;
+}
+
+.con{
+    margin-top: 10rem;
+}
+
+.contact{
+    margin-bottom: 10rem;
+    color: white;
+    font-family: "Droid Sans", Arial, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.pull-left a{
+    color: #FF5126;
+}
+
+.pull-left a:hover{
+    color: white;
+}
+
+.pull-right a{
+    color: #FF5126;
+    margin-right: 1rem;
+}
+
+.pull-right a:hover{
+    color: #FF5126;
 }

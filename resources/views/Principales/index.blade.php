@@ -10,6 +10,9 @@
     <!-- Isotipo -->
     <link rel="icon" href="{{ asset('img/isotipo.png') }}">
 
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
     <!-- Estilos Bootstrap -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
 
@@ -19,8 +22,11 @@
     <!-- Slider Flickity-->
     <link rel="stylesheet" href="{{ asset('css/flickity.css') }}">
 
-    <!-- Estilos personalizados -->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <!-- LightBox -->
+    <link rel="stylesheet" href="{{ asset('css/lightbox.min.css') }}">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 <body>
 
@@ -65,26 +71,6 @@
             </div>
         </div>
     </nav>
-
-    <!-- Modal -->
-    <!--<div id="soporte" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-lg">
-            <!-- Modal content-->
-            <!--<div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Soporte Técnico</h4>
-                </div>
-                <div class="modal-body">
-                    <embed src="../os/index_m.php" frameborder="0" width="100%" height="400px">
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>-->
-    <!-- Fin Modal -->
 
     <!-- Modal -->
     <div class="modal fade bd-example-modal-xl" id="soporte" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle & myLargeModalLabel" aria-hidden="true">
@@ -172,34 +158,64 @@
                 <div class="col-sm-12 col-md-12 col-lg-12 text-center social">
                     <h2>Social</h2>
                 </div>
-                <div class="col-sm-12 col-md-12 col-lg-12 text-center social2">
+                <div class="col-sm-12 col-md-12 col-lg-12 text-center social2 mb-5">
                     <p>Actividades Recreativas, Sociales y Culturales</p>
                 </div>
             </div>
+            <div class="row text-center">
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <a class="example-image-link" href="{{ asset('img/social/e.jpg') }}" data-lightbox="example-set" data-title="Evolución Consciente.">
+                        <img src="{{ asset('img/social/e.jpg') }}" alt="Image" class="img-responsive" height="260" width="350">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <a class="example-image-link" href="{{ asset('img/social/7.jpg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
+                        <img src="{{ asset('img/social/7.jpg') }}" alt="Image" class="img-responsive" height="260" width="350">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <a class="example-image-link" href="{{ asset('img/social/f1.jpg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
+                        <img src="{{ asset('img/social/f1.jpg') }}" alt="Image" class="img-responsive" height="260" width="350">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 mb-5">
+                    <a class="example-image-link" href="{{ asset('img/social/f2.jpg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
+                        <img src="{{ asset('img/social/f2.jpg') }}" alt="Image" class="img-responsive" height="260" width="350">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 mb-5">
+                    <a class="example-image-link" href="{{ asset('img/social/f3.jpg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
+                        <img src="{{ asset('img/social/f3.jpg') }}" alt="Image" class="img-responsive" height="260" width="350">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 mb-5">
+                    <a class="example-image-link" href="{{ asset('img/social/5.jpg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
+                        <img src="{{ asset('img/social/5.jpg') }}" alt="Image" class="img-responsive" height="260" width="350">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="footer">
+        <div class="container con">
             <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-4">
-                    <a href="{{ asset('img/social/e.jpg') }}" class="gtco-card-item image-popup" title="Evolución Consciente">
-                        <figure>
-                            <div class="overlay"><i class="ti-plus"></i></div>
-                            <img src="{{ asset('img/social/e.jpg') }}" alt="Image" class="img-responsive">
-                        </figure>
-                    </a>
+                <div class="col-sm-12 col-md-6 col-gl-6 mt-5 contact">
+                    <p class="pull-left">
+                        <small class="block">&copy; 2019</small>
+                        <br>
+                        <small class="block">Preguntas o Sugerencias favor de enviar un correo a<a href="#" target="_blank"> asistemas@pintumex.com.mx</a> </small>
+                        <br>
+                        <small class="block">Derechos reservados<a href="#" target="_blank"> Pintumex </a></small>
+                    </p>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-4">
-                    <a href="{{ asset('img/social/7.jpg') }}" class="gtco-card-item image-popup" title="Plan de Negocios">
-                        <figure>
-                            <div class="overlay"><i class="ti-plus"></i></div>
-                            <img src="{{ asset('img/social/7.jpg') }}" alt="Image" class="img-responsive">
-                        </figure>
-                    </a>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-4">
-                    <a href="{{ asset('img/social/f1.jpg') }}" class="gtco-card-item image-popup" title="Plan de Negocios">
-                        <figure>
-                            <div class="overlay"><i class="ti-plus"></i></div>
-                            <img src="{{ asset('img/social/f1.jpg') }}" alt="Image" class="img-responsive">
-                        </figure>
-                    </a>
+                <div class="col-sm-12 col-md-6 col-gl-6 mt-5 text-right">
+                    <p class="pull-right">
+                        <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="https://www.facebook.com/pintumexoficial"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="#"><i class="fab fa-youtube fa-2x"></i></a>
+                        <a href="https://www.twitter.com/pintumexoficial"><i class="fab fa-twitter fa-2x"></i></a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -207,6 +223,9 @@
 
 
     <!-- JavaScript -->
+
+    <!-- Functions -->
+    <script src="{{ asset('js/functions.js') }}"></script>
 
     <!-- JQuery -->
     <script src="{{ asset('js/jquery.min.js') }}"></script>
@@ -216,6 +235,9 @@
 
     <!-- Flickity -->
     <script src="{{ asset('js/flickity.pkgd.min.js') }}"></script>
+
+    <!-- LightBox -->
+    <script src="{{ asset('js/lightbox.min.js') }}"></script>
 
 </body>
 </html>
