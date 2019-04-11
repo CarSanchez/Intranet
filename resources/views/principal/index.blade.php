@@ -74,7 +74,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalScrollableTitle">Iniciar sesión/Registro</h5>
+                    <h5 class="modal-title" id="exampleModalScrollableTitle">Iniciar sesión</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -110,7 +110,66 @@
 
                                     <div class="mt-4">
                                         <h5>¿Eres nuevo?</h5>
-                                        <a class="btn btn-secondary" href="">Registrate ahora!</a>
+                                        <a class="btn btn-secondary" href="" data-toggle="modal" data-target="#register" data-dismiss="modal">Registrate ahora!</a>
+                                    </div>
+
+                                    <p class="mt-4 mb-3 text-muted">&copy;Pintumex 1971-2019</p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+
+@section('mod-reg-content')
+    <!-- Modal Login/Register -->
+    <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalScrollableTitle">Registro</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row text-center">
+                            <div class="col">
+                                <form class="form-signin" method="POST" action="">
+                                    {{ csrf_field() }}
+
+                                    <img class="mb-4" src="{{ asset('img/nav/log.png') }}" alt="Form Login">
+                                    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+
+                                    <label for="inputEmail" class="sr-only">Usuario</label>
+                                    <input type="email"
+                                           id="inputEmail"
+                                           class="form-control mb-2"
+                                           placeholder="Usuario"
+                                           required
+                                           autofocus>
+
+                                    <label for="inputPassword" class="sr-only">Password</label>
+                                    <input type="password"
+                                           id="inputPassword"
+                                           class="form-control"
+                                           placeholder="Contraseña"
+                                           required>
+
+                                    <div class="checkbox mb-3"></div>
+
+                                    <button class="btn btn-lg btn-primary btn-block" type="submit">Registrarse</button>
+
+                                    <div class="mt-4">
+                                        <h5>¿Ya tienes cuenta?</h5>
+                                        <a class="btn btn-secondary" href="" data-toggle="modal" data-target="#login" data-dismiss="modal">Inicia sesión</a>
                                     </div>
 
                                     <p class="mt-4 mb-3 text-muted">&copy;Pintumex 1971-2019</p>

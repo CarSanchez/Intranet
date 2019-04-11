@@ -37,6 +37,8 @@
 
     @yield('mod-log-content')
 
+    @yield('mod-reg-content')
+
     @yield('car-content')
 
     @yield('abo-content')
