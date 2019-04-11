@@ -16,5 +16,5 @@
 });*/
 
 Route::get('/', function () {
-    return view('Principales.index');
+    return view('principal.index');
 })->name('index');

@@ -4,6 +4,12 @@
     background: #FF5126;
 }
 
+/* Modals */
+/* Modal Login / Register */
+.form-signin{
+    margin: 0 5rem 0 5rem;
+}
+
 /* NavBar */
 .navbar{
     background-color: white;
@@ -126,5 +132,6 @@
 }
 
 .pull-right a:hover{
-    color: #FF5126;
+    /*color: #FF5126;*/
+    color: white;
 }
