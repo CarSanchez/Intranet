@@ -15,4 +15,6 @@ Route::get('/', function () {
     return view('principal.index');
 })->name('index');
 
-
+Route::get('/dashboard', function () {
+    return view('administrador.app.layout');
+})->name('admin');
