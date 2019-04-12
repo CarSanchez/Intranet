@@ -14,12 +14,18 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\User::class, function (Faker $faker) {
+$factory->define(App\Models\User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
+        'lastName' => $faker->lastName,
+        'date' => $faker->date('Y-m-d'),
+        'route_img' => 'img/perfiles/demos/icon-user.png',
         'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
+        'user' => $faker->unique()->userName,
         'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+        'role' => '2',
+        'active' => '1',
+        'notes' => 'This user is the a normal user',
         'remember_token' => Str::random(10),
     ];
 });

@@ -14,15 +14,16 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                 <ul class="navbar-nav ml-auto text-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('index') }}">Inicio</a>
+                        <a class="nav-link" href="#inicio">Inicio</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             About
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Social</a>
-                            <a class="dropdown-item" href="#">Contacto</a>
+                            <a class="dropdown-item" href="#about">Nosotros</a>
+                            <a class="dropdown-item" href="#social">Social</a>
+                            <a class="dropdown-item" href="#footer">Contacto</a>
                             <!--<div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Something else here</a>-->
                         </div>
@@ -33,20 +34,23 @@
                         </li>
                     @else
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="modal" data-target="#login">login</a>
+                            <a class="nav-link" href="#" data-toggle="modal" data-target="#login">login /</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-toggle="modal" data-target="#register">Registro</a>
                         </li>
                     @endauth
                 </ul>
                 <div class="d-flex flex-row justify-content-center">
                     <a class="mr-2"><img src="{{ asset('img/nav/c.png') }}" title="Soporte Tecnico" data-toggle="modal" data-target="#soporte"></a>
-                    <a href=""><img src="{{ asset('img/nav/agen.png') }}" title="Directorio Telefonico" data-toggle="modal" data-target="#Directorio"></a>
+                    <a><img src="{{ asset('img/nav/agen.png') }}" title="Directorio Telefonico" data-toggle="modal" data-target="#directorio"></a>
                 </div>
             </div>
         </div>
     </nav>
 @endsection
 
-@section('mod-content')
+@section('mod-sop-content')
     <!-- Modal Soporte -->
     <div class="modal fade bd-example-modal-xl" id="soporte" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle & myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
@@ -68,8 +72,30 @@
     </div>
 @endsection
 
+@section('mod-dir-content')
+    <!-- Modal Directorio telefonico -->
+    <div class="modal fade bd-example-modal-xl" id="directorio" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle & myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalScrollableTitle">Directorio Telefonico</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <embed src="{{ asset('documents/directorio.pdf') }}" frameborder="0" width="100%" height="400px">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+
 @section('mod-log-content')
-    <!-- Modal Login/Register -->
+    <!-- Modal Login -->
     <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -89,9 +115,8 @@
                                     <img class="mb-4" src="{{ asset('img/nav/log.png') }}" alt="Form Login">
                                     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 
-                                    <label for="inputEmail" class="sr-only">Usuario</label>
-                                    <input type="email"
-                                           id="inputEmail"
+                                    <label for="inputUser" class="sr-only">Usuario</label>
+                                    <input type="text"
                                            class="form-control mb-2"
                                            placeholder="Usuario"
                                            required
@@ -108,12 +133,7 @@
 
                                     <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar sesión</button>
 
-                                    <div class="mt-4">
-                                        <h5>¿Eres nuevo?</h5>
-                                        <a class="btn btn-secondary" href="" data-toggle="modal" data-target="#register" data-dismiss="modal">Registrate ahora!</a>
-                                    </div>
-
-                                    <p class="mt-4 mb-3 text-muted">&copy;Pintumex 1971-2019</p>
+                                    <p class="mt-5 mb-1 text-muted">&copy;Pintumex 2019</p>
                                 </form>
                             </div>
                         </div>
@@ -128,7 +148,7 @@
 @endsection
 
 @section('mod-reg-content')
-    <!-- Modal Login/Register -->
+    <!-- Modal Register -->
     <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -142,24 +162,72 @@
                     <div class="container">
                         <div class="row text-center">
                             <div class="col">
-                                <form class="form-signin" method="POST" action="">
+                                <form class="form-signin" method="POST" action="" enctype="multipart/form-data">
                                     {{ csrf_field() }}
 
                                     <img class="mb-4" src="{{ asset('img/nav/log.png') }}" alt="Form Login">
-                                    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+                                    <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
 
-                                    <label for="inputEmail" class="sr-only">Usuario</label>
-                                    <input type="email"
-                                           id="inputEmail"
-                                           class="form-control mb-2"
-                                           placeholder="Usuario"
+                                    <label for="inputName">Nombre(s)*</label>
+                                    <input type="text"
+                                           class="form-control mb-3"
+                                           placeholder="Nombre(s)"
+                                           name="name"
                                            required
                                            autofocus>
 
-                                    <label for="inputPassword" class="sr-only">Password</label>
+                                    <label for="inputLastName">Apellidos*</label>
+                                    <input type="text"
+                                           class="form-control mb-3"
+                                           placeholder="Apellidos"
+                                           name="lastName"
+                                           required
+                                           autofocus>
+
+                                    <label for="inputDateBirth">Fecha de nacimiento*</label>
+                                    <input type="date"
+                                           class="form-control mb-3"
+                                           placeholder="Fecha de nacimiento"
+                                           name="date"
+                                           required
+                                           autofocus>
+
+                                    <label for="inputDateBirth">Imagen de perfil(Opcional)</label>
+                                    <div class="custom-file mb-3">
+                                        <label class="custom-file-label" for="customFileLang">Imagen</label>
+                                        <input type="file"
+                                               class="custom-file-input"
+                                               id="customFileLang"
+                                               lang="es"
+                                               name="route_img">
+                                    </div>
+
+                                    <label for="inputEmail">Correo(Opcional)</label>
+                                    <input type="email"
+                                           class="form-control mb-3"
+                                           placeholder="Correo"
+                                           name="email"
+                                           autofocus>
+
+                                    <label for="inputUser">Usuario*</label>
+                                    <input type="text"
+                                           class="form-control mb-3"
+                                           placeholder="Usuario"
+                                           name="user"
+                                           required
+                                           autofocus>
+
+                                    <label for="inputPassword">Contraseña*</label>
                                     <input type="password"
-                                           id="inputPassword"
-                                           class="form-control"
+                                           class="form-control mb-3 {{ $errors->has('password') ? 'is-invalid' : '' }}"
+                                           name="password"
+                                           placeholder="Contraseña"
+                                           required>
+
+                                    <label for="inputPassword">Confirmar contraseña*</label>
+                                    <input type="password"
+                                           class="form-control mb-3 {{ $errors->has('password') ? 'is-invalid' : '' }}"
+                                           name="password_confirmation"
                                            placeholder="Contraseña"
                                            required>
 
@@ -169,10 +237,10 @@
 
                                     <div class="mt-4">
                                         <h5>¿Ya tienes cuenta?</h5>
-                                        <a class="btn btn-secondary" href="" data-toggle="modal" data-target="#login" data-dismiss="modal">Inicia sesión</a>
+                                        <a class="btn btn-secondary" href="" data-dismiss="modal" data-toggle="modal" data-target="#login">Inicia sesión</a>
                                     </div>
 
-                                    <p class="mt-4 mb-3 text-muted">&copy;Pintumex 1971-2019</p>
+                                    <p class="mt-5 mb-1 text-muted">&copy;Pintumex 2019</p>
                                 </form>
                             </div>
                         </div>

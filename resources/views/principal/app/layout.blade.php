@@ -33,7 +33,9 @@
 
     @yield('nav-content')
 
-    @yield('mod-content')
+    @yield('mod-sop-content')
+
+    @yield('mod-dir-content')
 
     @yield('mod-log-content')
 
