@@ -42,8 +42,8 @@
                     @endauth
                 </ul>
                 <div class="d-flex flex-row justify-content-center">
-                    <a class="mr-2"><img src="{{ asset('img/nav/c.png') }}" title="Soporte Tecnico" data-toggle="modal" data-target="#soporte"></a>
-                    <a><img src="{{ asset('img/nav/agen.png') }}" title="Directorio Telefonico" data-toggle="modal" data-target="#directorio"></a>
+                    <a href="#" class="mr-2"><img src="{{ asset('img/nav/c.png') }}" title="Soporte Tecnico" data-toggle="modal" data-target="#soporte"></a>
+                    <a href="#"><img src="{{ asset('img/nav/agen.png') }}" title="Directorio Telefonico" data-toggle="modal" data-target="#directorio"></a>
                 </div>
             </div>
         </div>
