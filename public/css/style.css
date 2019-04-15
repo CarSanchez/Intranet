@@ -95,8 +95,20 @@
     color: #1a1a1a;
 }
 
-.img-responsive{
+.imagen img{
+    height: 260px;
+    width: 350px;
+    margin: 15px 0;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
     border-radius: 10px;
+}
+.imagen img:hover {
+    height: 310px;
+    width: 400px;
+    margin: -50px -50px 0 -50px;
 }
 
 /* Contacto footer */

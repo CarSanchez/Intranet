@@ -330,34 +330,34 @@
                 </div>
             </div>
             <div class="row text-center">
-                <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="col-sm-12 col-md-6 col-lg-4 imagen">
                     <a class="example-image-link" href="{{ asset('img/social/e.jpg') }}" data-lightbox="example-set" data-title="Evolución Consciente.">
-                        <img src="{{ asset('img/social/e.jpg') }}" alt="Image" class="img-responsive" height="260" width="350">
+                        <img src="{{ asset('img/social/e.jpg') }}" alt="Image" class="img-responsive">
                     </a>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="col-sm-12 col-md-6 col-lg-4 imagen">
                     <a class="example-image-link" href="{{ asset('img/social/7.jpg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
-                        <img src="{{ asset('img/social/7.jpg') }}" alt="Image" class="img-responsive" height="260" width="350">
+                        <img src="{{ asset('img/social/7.jpg') }}" alt="Image" class="img-responsive">
                     </a>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="col-sm-12 col-md-6 col-lg-4 imagen">
                     <a class="example-image-link" href="{{ asset('img/social/f1.jpg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
-                        <img src="{{ asset('img/social/f1.jpg') }}" alt="Image" class="img-responsive" height="260" width="350">
+                        <img src="{{ asset('img/social/f1.jpg') }}" alt="Image" class="img-responsive">
                     </a>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 mb-5">
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 mb-5 imagen">
                     <a class="example-image-link" href="{{ asset('img/social/f2.jpg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
-                        <img src="{{ asset('img/social/f2.jpg') }}" alt="Image" class="img-responsive" height="260" width="350">
+                        <img src="{{ asset('img/social/f2.jpg') }}" alt="Image" class="img-responsive">
                     </a>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 mb-5">
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 mb-5 imagen">
                     <a class="example-image-link" href="{{ asset('img/social/f3.jpg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
-                        <img src="{{ asset('img/social/f3.jpg') }}" alt="Image" class="img-responsive" height="260" width="350">
+                        <img src="{{ asset('img/social/f3.jpg') }}" alt="Image" class="img-responsive">
                     </a>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 mb-5">
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 mb-5 imagen">
                     <a class="example-image-link" href="{{ asset('img/social/5.jpg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
-                        <img src="{{ asset('img/social/5.jpg') }}" alt="Image" class="img-responsive" height="260" width="350">
+                        <img src="{{ asset('img/social/5.jpg') }}" alt="Image" class="img-responsive">
                     </a>
                 </div>
             </div>
