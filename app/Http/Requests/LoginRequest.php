@@ -24,7 +24,7 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            $this->username() => 'bail|required|string|min:4|max:20',
+            $this->username() => 'bail|required|string|min:2|max:20',
             'password' => 'bail|required|min:6',
         ];
     }

@@ -15,10 +15,12 @@ Route::get('/', function () {
     return view('principal.index');
 })->name('index');
 
-Route::get('/dashboard', function () {
-    return view('administrador.app.layout');
-})->name('admin');
 
+// Routes login_and_register
+Route::get('/auth', 'LoginController@index')->name('auth.index');
 
-// Routes login
 Route::post('/login', 'LoginController@login')->name('login.login');
+
+Route::get('/dashboard', function () {
+    return view('admin.app.layout');
+})->name('admin');

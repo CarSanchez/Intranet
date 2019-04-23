@@ -34,10 +34,10 @@
                         </li>
                     @else
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="modal" data-target="#login">login /</a>
+                            <a class="nav-link" href='{{ route('auth.index') }}'>login /</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="modal" data-target="#register">Registro</a>
+                            <a class="nav-link" href="" data-toggle="modal" data-target="#register">Registro</a>
                         </li>
                     @endauth
                 </ul>
@@ -96,7 +96,7 @@
 
 @section('mod-log-content')
     <!-- Modal Login -->
-    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!--<div class="modal fade" id="login_and_register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -106,62 +106,14 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="container">
-                        <div class="row text-center">
-                            <div class="col">
-                                <form class="form-signin" method="POST" action="{{ route('login.login') }}">
-                                    {{ csrf_field() }}
 
-                                    <img class="mb-4" src="{{ asset('img/nav/log.png') }}" alt="Form Login">
-
-                                    @if($errors->any())
-                                        <div class="alert alert-danger">
-                                            @foreach($errors->all() as $error)
-                                                {{ $error }}
-                                            @endforeach
-                                        </div>
-                                    @endif
-
-                                    @if (session()->has('flash'))
-                                        <div class="alert alert-danger text-center">
-                                            {{ session('flash') }}
-                                        </div>
-                                    @endif
-
-                                    <h1 class="h3 mb-3 font-weight-normal">Inicia sesión</h1>
-
-                                    <label for="inputUser" class="sr-only">Usuario</label>
-                                    <input type="text"
-                                           class="form-control mb-2 {{ $errors->has('user') ? ' is-invalid' : '' }}"
-                                           placeholder="Usuario"
-                                           name="user"
-                                           required
-                                           autofocus>
-
-                                    <label for="inputPassword" class="sr-only">Password</label>
-                                    <input type="password"
-                                           id="inputPassword"
-                                           class="form-control"
-                                           placeholder="Contraseña"
-                                           name="password"
-                                           required>
-
-                                    <div class="checkbox mb-3"></div>
-
-                                    <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar sesión</button>
-
-                                    <p class="mt-5 mb-1 text-muted">&copy;Pintumex 2019</p>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 @endsection
 
 @section('mod-reg-content')

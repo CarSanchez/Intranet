@@ -10,13 +10,14 @@ use App\Models\User;
 class LoginController extends Controller
 {
     protected $request;
+    protected $loginRequest;
     protected $user;
 
-    public function __construct(LoginRequest $request, User $user)
+    public function __construct(Request $request, User $user)
     {
-        /*$this->middleware('guest', [
-            'only' => 'login',                  //Authenticate client user created, mostrar formulario si no esta autenticado
-        ]);*/
+        $this->middleware('guest', [
+            'only' => 'index'                    //Authenticate client user created, mostrar formulario si no esta autenticado
+        ]);
 
         $this->request = $request;
         $this->user = $user;
@@ -29,19 +30,17 @@ class LoginController extends Controller
      */
     public function index()
     {
-        //
+        return view('login_and_register.login.index');
     }
 
     /**
-     * Function login.
+     * Function login_and_register.
      *
      * @return \Illuminate\Http\Response
      */
-    public function login()
+    public function login(LoginRequest $loginRequest)
     {
-        $credentials = $this->request->validated();
-
-        dd($credentials);
+        $credentials = $loginRequest->validated();
 
         $userdb = $this->user->where('user', $credentials['user'])->first();
 
