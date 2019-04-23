@@ -26,8 +26,9 @@ class User extends Model
         'email',
         'user',
         'password',
-        'role',
         'active',
+        'role',
+        'position',
         'notes',
     ];
 
@@ -39,8 +40,9 @@ class User extends Model
     protected $hidden = [
         'route_img',
         'password',
-        'role',
         'active',
+        'role',
+        'position',
     ];
 
     /**
@@ -58,7 +60,6 @@ class User extends Model
      * @var array
      */
     protected $casts = [
-        'role' => 'string',
         'active' => 'boolean',
         'created_at' => 'datetime:Y-m-d',
     ];

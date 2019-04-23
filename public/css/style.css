@@ -105,6 +105,7 @@
     transition: all 1s ease;
     border-radius: 10px;
 }
+
 .imagen img:hover {
     height: 310px;
     width: 400px;

@@ -109,16 +109,32 @@
                     <div class="container">
                         <div class="row text-center">
                             <div class="col">
-                                <form class="form-signin" method="POST" action="">
+                                <form class="form-signin" method="POST" action="{{ route('login.login') }}">
                                     {{ csrf_field() }}
 
                                     <img class="mb-4" src="{{ asset('img/nav/log.png') }}" alt="Form Login">
-                                    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+
+                                    @if($errors->any())
+                                        <div class="alert alert-danger">
+                                            @foreach($errors->all() as $error)
+                                                {{ $error }}
+                                            @endforeach
+                                        </div>
+                                    @endif
+
+                                    @if (session()->has('flash'))
+                                        <div class="alert alert-danger text-center">
+                                            {{ session('flash') }}
+                                        </div>
+                                    @endif
+
+                                    <h1 class="h3 mb-3 font-weight-normal">Inicia sesión</h1>
 
                                     <label for="inputUser" class="sr-only">Usuario</label>
                                     <input type="text"
-                                           class="form-control mb-2"
+                                           class="form-control mb-2 {{ $errors->has('user') ? ' is-invalid' : '' }}"
                                            placeholder="Usuario"
+                                           name="user"
                                            required
                                            autofocus>
 
@@ -127,6 +143,7 @@
                                            id="inputPassword"
                                            class="form-control"
                                            placeholder="Contraseña"
+                                           name="password"
                                            required>
 
                                     <div class="checkbox mb-3"></div>
@@ -166,7 +183,7 @@
                                     {{ csrf_field() }}
 
                                     <img class="mb-4" src="{{ asset('img/nav/log.png') }}" alt="Form Login">
-                                    <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
+                                    <h1 class="h3 mb-3 font-weight-normal">Registrate</h1>
 
                                     <label for="inputName">Nombre(s)*</label>
                                     <input type="text"

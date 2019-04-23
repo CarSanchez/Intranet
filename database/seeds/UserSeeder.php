@@ -21,8 +21,9 @@ class UserSeeder extends Seeder
             'email' => 'sa@pintumex.com.x',
             'user' => 'sa',
             'password' => bcrypt('Intr@net19'),
-            'role' => '1',
             'active' => '1',
+            'role' => 'sa',
+            'position' => 'sa',
             'notes' => 'This user is the admin with all permissions',
             /*'remember_token' => Str::random(10),*/
         ]);
@@ -34,6 +35,9 @@ class UserSeeder extends Seeder
         factory(User::class)->times(1)->create([
             'password' => '$2y$10$OW4wSONu2ZNvf4pnbdrQ3uuJklE4oaZ3QVooH89nNvqKj07PNKT7K', //secret2
             'active' => false,
+            'role' => 'user',
+            'position' => 'user',
+            'notes' => 'This user is the a user with position user',
         ]);
     }
 }

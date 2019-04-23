@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('administrador.app.layout');
 })->name('admin');
+
+
+// Routes login
+Route::post('/login', 'LoginController@login')->name('login.login');
