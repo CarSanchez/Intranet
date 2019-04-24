@@ -46,6 +46,25 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($request->expectsJson()) {
+            return response()->json(['error' => 'Unauthenticated.'], 401);
+        }
+
+        if ($exception instanceof \Illuminate\Auth\AuthenticationException)
+        {
+            $guard = array_get($exception->guards(), 0);
+
+            switch ($guard) {
+                case 'web':
+                    $login = 'auth.index';
+                    break;
+                default:
+                    $login = 'auth.index';
+                    break;
+            }
+            return redirect()->route($login)->with('flash', 'Por favor inicia sesión');
+        }
+
         return parent::render($request, $exception);
     }
 }

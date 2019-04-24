@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\LoginRequest;
 use App\Models\User;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -24,7 +25,7 @@ class LoginController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Show the view of login.
      *
      * @return \Illuminate\Http\Response
      */
@@ -34,33 +35,43 @@ class LoginController extends Controller
     }
 
     /**
-     * Function login_and_register.
+     * Function login
      *
      * @return \Illuminate\Http\Response
      */
     public function login(LoginRequest $loginRequest)
     {
-        $credentials = $loginRequest->validated();
+        $validates = $loginRequest->validated();
 
-        $userdb = $this->user->where('user', $credentials['user'])->first();
+        $userdb = $this->user->where('user', $validates['user'])->first();
 
-        dd($userdb);
-
-        /*if (isset($userdb->user)){
-            if ($userdb->active){
-                if (Auth::attempt($credentials)){
+        if (isset($userdb->user)){  /* Comprueba si existe el usuario */
+            if ($userdb->active){   /* Comprueba si esta activo el usuario existente */
+                if (Auth::attempt($validates)){ /* Hace la acción de logueo y redirige a vista de admin*/
                     return redirect()->route('admin');
                 }
                 else{
-                    return redirect()->route('index')->withErrors(['email' => 'Correo o contraseña incorrecto'])->withInput();
+                    return redirect()->route('auth.index')->withErrors(['user' => 'Usuario o contraseña incorrecto'])->withInput();
                 }
             }
             else{
-                return redirect()->route('index')->withErrors(['Tu usuario no está activo, contacta al administrador'])->withInput();
+                return redirect()->route('auth.index')->withErrors(['Tu usuario no está activo, contacta al administrador'])->withInput();
             }
         }
         else{
-            return redirect()->route('index')->withErrors(['Tu usuario no existe, contacta al administrador'])->withInput();
-        }*/
+            return redirect()->route('auth.index')->withErrors(['Tu usuario no existe, contacta al administrador'])->withInput();
+        }
+    }
+
+    /**
+     * Function login
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function logout(){
+        Auth::logout();
+        Session::flush();
+        Session::forget('intranet_session');
+        return redirect()->route('admin');
     }
 }

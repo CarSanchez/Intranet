@@ -1,6 +1,6 @@
 @extends('login_and_register.app.layout')
 
-@section('title', 'login_and_register')
+@section('title', 'Login Intranet')
 
 @section('contentLogin')
     <form class="form-signin" method="POST" action="{{ route('login.login') }}">
@@ -27,7 +27,7 @@
         <label for="inputUser" class="sr-only">Usuario</label>
         <input type="text"
                class="form-control mb-2 {{ $errors->has('user') ? ' is-invalid' : '' }}"
-               placeholder="Usuario"
+               placeholder="Usuario Min: 2 caracteres"
                value="{{ old('user') }}"
                name="user"
                required
@@ -37,7 +37,7 @@
         <input type="password"
                id="inputPassword"
                class="form-control"
-               placeholder="Contraseña"
+               placeholder="Contraseña Min: 6 caracteres"
                name="password"
                required>
 

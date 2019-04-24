@@ -23,6 +23,8 @@
 
     @yield('contentLogin')
 
+    @yield('contentRegister')
+
     <!-- JavaScript -->
 
     <!-- JQuery -->

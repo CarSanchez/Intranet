@@ -1,0 +1,14 @@
+/* Modified the photo of user */
+.nav-item img{
+    border-radius: 30px;
+}
+
+/* Size of letter of the username */
+.dropdown-toggle{
+    font-size: 1.5rem;
+}
+
+/* Style of control menu */
+#wrapper{
+    background: rgb(0, 174, 31);
+}

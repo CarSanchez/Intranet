@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
             'name' => 'sa',
             'lastName' => 'admin',
             'date' => date('Y-m-d H:i:s'),
-            'route_img' => 'img/perfiles/demos/icon-admin.png',
+            'route_img' => '',
             'email' => 'sa@pintumex.com.x',
             'user' => 'sa',
             'password' => bcrypt('Intr@net19'),

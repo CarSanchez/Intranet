@@ -38,7 +38,7 @@ class LoginRequest extends FormRequest
     {
         return [
             'user.required' => 'El usuario es requerido.',
-            'user.min' => 'El usuario debe ser minimo de 4 caracteres.',
+            'user.min' => 'El usuario debe ser minimo de 2 caracteres.',
             'password.required' => 'La contraseña es requerida.',
             'password.min' => 'La contraseña debe ser minimo de 6 caracteres.',
         ];

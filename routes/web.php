@@ -16,11 +16,22 @@ Route::get('/', function () {
 })->name('index');
 
 
-// Routes login_and_register
-Route::get('/auth', 'LoginController@index')->name('auth.index');
 
-Route::post('/login', 'LoginController@login')->name('login.login');
+Route::get('/register');
 
-Route::get('/dashboard', function () {
-    return view('admin.app.layout');
-})->name('admin');
+
+Route::group(['middleware' => ['web']], function () {
+    // Routes login
+    Route::get('/auth', 'LoginController@index')->name('auth.index');
+
+    Route::post('/login', 'LoginController@login')->name('login.login');
+
+    Route::post('/logout', 'LoginController@logout')->name('logout');
+});
+
+
+Route::group(['middleware' => 'auth'], function (){
+    Route::get('/dashboard', function () {
+        return view('user.app.layout');
+    })->name('admin');
+});
