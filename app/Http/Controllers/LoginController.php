@@ -64,14 +64,14 @@ class LoginController extends Controller
     }
 
     /**
-     * Function login
+     * Function logout
      *
      * @return \Illuminate\Http\Response
      */
     public function logout(){
-        Auth::logout();
-        Session::flush();
-        Session::forget('intranet_session');
-        return redirect()->route('admin');
+        Auth::logout(); /** <- Cierra el inicio de sesion */
+        Session::flush(); /** <- Elimina variables de sesion */
+        Session::forget('intranet_session'); /** <- Elimina cookies de sesion por key */
+        return redirect()->route('index'); /** <- Redirige a una pagina */
     }
 }

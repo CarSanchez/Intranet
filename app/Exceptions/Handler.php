@@ -46,6 +46,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        /**
+        * Proceso para redirigir al formulario de login en caso de querer acceder a vistas protegidas
+        * mediante autenticación con un mensaje de error.
+        */
         if ($request->expectsJson()) {
             return response()->json(['error' => 'Unauthenticated.'], 401);
         }
