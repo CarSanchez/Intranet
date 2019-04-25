@@ -49,7 +49,7 @@
 
         <div class="mt-4">
             <h5>¿Eres nuevo?</h5>
-            <a class="btn btn-secondary" href="">Registrate ahora!</a>
+            <a class="btn btn-secondary" href="{{ route('register.index') }}">Registrate ahora!</a>
         </div>
 
         <p class="mt-5 mb-1 text-muted">&copy;Pintumex 2019</p>

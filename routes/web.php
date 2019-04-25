@@ -16,12 +16,18 @@ Route::get('/', function () {
 })->name('index');
 
 
+/**
+ * Routes of register
+*/
+Route::get('/register', 'RegisterController@index')->name('register.index');
 
-Route::get('/register');
+Route::post('/register', 'RegisterController@store')->name('register.store');
 
 
+/**
+ * Routes of login
+*/
 Route::group(['middleware' => ['web']], function () {
-    // Routes login
     Route::get('/auth', 'LoginController@index')->name('auth.index');
 
     Route::post('/login', 'LoginController@login')->name('login.login');
@@ -32,6 +38,6 @@ Route::group(['middleware' => ['web']], function () {
 
 Route::group(['middleware' => 'auth'], function (){
     Route::get('/dashboard', function () {
-        return view('user.app.layout');
+        return view('consumers.app.layout');
     })->name('admin');
 });

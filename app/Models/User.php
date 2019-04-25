@@ -27,7 +27,6 @@ class User extends Authenticatable
         'password',
         'active',
         'role',
-        'position',
         'notes',
     ];
 
@@ -41,7 +40,6 @@ class User extends Authenticatable
         'password',
         'active',
         'role',
-        'position',
     ];
 
     /**

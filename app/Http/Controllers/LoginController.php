@@ -10,14 +10,23 @@ use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
+    /**
+     * Attributes
+    */
     protected $request;
     protected $loginRequest;
     protected $user;
 
+    /**
+     * Metodo constructor
+     */
     public function __construct(Request $request, User $user)
     {
+        /**
+         * Authenticate client user created, mostrar formulario si no esta autenticado
+        */
         $this->middleware('guest', [
-            'only' => 'index'                    //Authenticate client user created, mostrar formulario si no esta autenticado
+            'only' => 'index',
         ]);
 
         $this->request = $request;
@@ -72,6 +81,6 @@ class LoginController extends Controller
         Auth::logout(); /** <- Cierra el inicio de sesion */
         Session::flush(); /** <- Elimina variables de sesion */
         Session::forget('intranet_session'); /** <- Elimina cookies de sesion por key */
-        return redirect()->route('index'); /** <- Redirige a una pagina */
+        return redirect()->route('admin'); /** <- Redirige a una pagina */
     }
 }

@@ -24,8 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('user', 20)->unique();
             $table->string('password');
             $table->integer('active')->default('1');
-            $table->string('role')->default('inv');
-            $table->string('position')->default('inv');
+            $table->string('role')->default('user');
             $table->string('notes')->nullable();
 
             $table->rememberToken();
