@@ -31,7 +31,8 @@
                value="{{ old('user') }}"
                name="user"
                required
-               autofocus>
+               autofocus
+               autocomplete="of">
 
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password"

@@ -27,7 +27,7 @@
                name="name"
                value="{{ old('name') }}"
                required
-               autofocus>
+               autocomplete="of">
 
         <label for="inputLastName">Apellidos*</label>
         <input type="text"
@@ -36,7 +36,7 @@
                name="lastName"
                value="{{ old('lastName') }}"
                required
-               autofocus>
+               autocomplete="of">
 
         <label for="inputDateBirth">Fecha de nacimiento*</label>
         <input type="date"
@@ -45,7 +45,7 @@
                name="date"
                value="{{ old('date') }}"
                required
-               autofocus>
+               autocomplete="of">
 
         <label for="inputDateBirth">Imagen de perfil(Opcional)</label>
         <div class="custom-file mb-3">
@@ -55,7 +55,8 @@
                    id="customFileLang"
                    lang="es"
                    name="route_img"
-                   value="{{ old('route_img') }}">
+                   value="{{ old('route_img') }}"
+                   autocomplete="of">
         </div>
 
         <label for="inputEmail">Correo(Opcional)</label>
@@ -63,7 +64,7 @@
                class="form-control mb-3"
                placeholder="Correo"
                name="email"
-               autofocus>
+               autocomplete="of">
 
         <label for="inputUser">Usuario*</label>
         <input type="text"
@@ -71,7 +72,7 @@
                placeholder="Usuario Min: 2 caracteres"
                name="user"
                required
-               autofocus>
+               autocomplete="of">
 
         <label for="inputPassword">Contraseña*</label>
         <input type="password"

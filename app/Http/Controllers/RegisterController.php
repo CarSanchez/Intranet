@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\RegisterRequest;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -53,7 +54,34 @@ class RegisterController extends Controller
     {
         $validates = $registerRequest->validated();
 
-        dd($validates);
+        if ($registerRequest->hasFile('route_img'))
+        {
+            $file = $registerRequest->file('route_img');
+            /**$name = $validates['user'].'_'.$file->getClientOriginalName();*/ /** <- Obtiene el nombre de la imagen*/
+            $name = $validates['user'].'_'.$file->getClientOriginalExtension();
+            $file->move(public_path('/img/perfiles/'.$validates['user']), $name);
+            $route = 'img/perfiles/'.$validates['user'].'/'.$name;
+        }
+        else
+        {
+            $route = null;
+        }
+
+        $attributes = [
+            'name' => $validates['name'],
+            'lastName' => $validates['lastName'],
+            'date' => $validates['date'],
+            'route_img' => $route,
+            'email' => $validates['email'],
+            'user' => $validates['user'],
+            'password' => bcrypt($validates['password']),
+        ];
+
+        $this->user->create($attributes);
+
+        if(Auth::attempt([$this->user() => $validates['user'], 'password' => $validates['password']])){
+            return redirect()->route('admin');
+        }
     }
 
     /**
@@ -99,5 +127,13 @@ class RegisterController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Function of get the user
+     */
+    public function user()
+    {
+        return 'user';
     }
 }

@@ -35,9 +35,14 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/logout', 'LoginController@logout')->name('logout');
 });
 
-
-Route::group(['middleware' => 'auth'], function (){
-    Route::get('/dashboard', function () {
-        return view('consumers.app.layout');
-    })->name('admin');
+/**
+ * Routes dashboard
+*/
+Route::prefix('dashboard')->group(function() {
+    Route::group(['middleware' => 'auth'], function (){
+        /**
+         * Routes of admin
+         */
+        Route::get('/admin', 'UserController@index')->name('admin');
+    });
 });
