@@ -30,7 +30,15 @@
                     </li>
                     @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin') }}">{{ auth()->user()->name }}</a>
+                            @if(auth()->user()->role == 'sa')
+                                <a class="nav-link" href="{{ route('admin') }}">{{ auth()->user()->name }}</a>
+                            @elseif(auth()->user()->role == 'admin')
+                                <a class="nav-link" href="{{ route('admin') }}">{{ auth()->user()->name }}</a>
+                            @elseif(auth()->user()->role == 'user')
+                                <a class="nav-link" href="{{ route('admin') }}">{{ auth()->user()->name }}</a>
+                            @else
+                                <a class="nav-link" href="{{ route('admin') }}">{{ auth()->user()->name }}</a>
+                            @endif
                         </li>
                     @else
                         <li class="nav-item">

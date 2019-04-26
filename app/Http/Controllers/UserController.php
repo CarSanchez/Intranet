@@ -27,7 +27,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('consumers.app.layout');
+        return view('consumers.profile.index');
+    }
+
+    public function showAdmin()
+    {
+        return view('consumers.admins.index');
     }
 
     /**

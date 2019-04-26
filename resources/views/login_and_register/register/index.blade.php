@@ -64,6 +64,7 @@
                class="form-control mb-3"
                placeholder="Correo"
                name="email"
+               value="{{ old('email') }}"
                autocomplete="of">
 
         <label for="inputUser">Usuario*</label>
@@ -71,6 +72,7 @@
                class="form-control mb-3"
                placeholder="Usuario Min: 2 caracteres"
                name="user"
+               value="{{ old('user') }}"
                required
                autocomplete="of">
 
@@ -92,7 +94,7 @@
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Registrarse</button>
         <br>
-        <a class="btn btn-secondary btn-block" href="{{ route('index') }}">Regresar</a>
+        <a class="btn btn-secondary btn-block" href="{{ route('index') }}">Inicio</a>
 
         <div class="mt-4">
             <h5>¿Ya tienes cuenta?</h5>

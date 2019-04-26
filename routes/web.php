@@ -43,6 +43,11 @@ Route::prefix('dashboard')->group(function() {
         /**
          * Routes of admin
          */
-        Route::get('/admin', 'UserController@index')->name('admin');
+        Route::get('/admin', 'UserController@showAdmin')->name('admin');
+
+        /**
+         * Routes of the profile of user
+        */
+        Route::get('/profile', 'UserController@index')->name('profile.index');
     });
 });

@@ -36,7 +36,7 @@
         </button>
         <div class="collapse navbar-collapse" id="collapseNavbar">
             <div class="navbar-nav text-center ml-auto">
-                <a class="nav-item nav-link" href="#">
+                <a class="nav-item nav-link" href="#" id="round">
                     @if(auth()->user()->route_img == null)
                         <span class="fas fa-user fa-2x mr-2 nav-link" aria-hidden="true" style="color: white;"></span>
                     @else
@@ -48,7 +48,7 @@
                         {{ auth()->user()->name }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuUserLink">
-                        <a class="dropdown-item" href="#"><i class="far fa-user"></i> Perfil</a>
+                        <a class="dropdown-item" href="{{ route('profile.index') }}"><i class="far fa-user"></i> Perfil</a>
                         <a class="dropdown-item" href="{{ route('index') }}"><i class="fas fa-home"></i> Inicio</a>
                         <form method="POST" action="{{ route('logout') }}">
                             {{ csrf_field() }}
@@ -61,22 +61,7 @@
     </div>
 </nav>
 
-<div class="d-flex" id="wrapper">
-    <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper">
-        <div class="sidebar-heading">Panel de control</div>
-        <div class="list-group list-group-flush">
-            <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-            <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
-            <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
-            <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
-            <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
-            <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
-        </div>
-    </div>
-    <!-- /#sidebar-wrapper -->
-</div>
-<!-- /#wrapper -->
+@yield('content')
 
 
 <!-- JavaScript -->

@@ -1,6 +1,37 @@
-/* Modified the photo of user */
-.nav-item img{
+/* Fondo */
+.back{
+    width: 100%;
+    height: 15rem;
+    background-size: contain;
+    position: absolute;
+}
+
+/* Modified the photo of user of nav */
+#round img{
     border-radius: 30px;
+}
+
+/* Modified the photo of user of page profile */
+#round_profile{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 5rem;
+}
+
+#round_profile:hover{
+    filter:brightness(0.4);
+}
+
+#round_profile a:hover{
+    background: url("../img/profile_page/pen.png") no-repeat;
+    background-size: contain;
+    color: white;
+}
+
+.pen {
+    width: 10rem;
+    height: 10rem;
+    display: block;
 }
 
 /* Size of letter of the username */
