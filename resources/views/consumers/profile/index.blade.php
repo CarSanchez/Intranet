@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="back" style="background: url('{{ asset('img/profile_page/fondo.jpg') }}') no-repeat;"></div>
-    <div class="container">
+    <div class="container pos">
         <div class="py-5 text-center">
                 @if(auth()->user()->route_img == null)
                     <div class="ml-auto mr-auto" style="background: url('{{ asset(auth()->user()->route_img) }}'); background-size: cover" id="round_profile">

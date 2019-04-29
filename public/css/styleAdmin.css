@@ -11,6 +11,12 @@
     border-radius: 30px;
 }
 
+/* Position of content profile */
+.pos{
+    margin: 6rem 0 0 0;
+    position: relative;
+}
+
 /* Modified the photo of user of page profile */
 #round_profile{
     width: 10rem;
