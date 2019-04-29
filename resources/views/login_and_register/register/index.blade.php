@@ -56,7 +56,7 @@
                    lang="es"
                    name="route_img"
                    value="{{ old('route_img') }}"
-                   autocomplete="of">
+                   autocomplete="of" style="opacity: 2;">
         </div>
 
         <label for="inputEmail">Correo(Opcional)</label>

@@ -32,7 +32,8 @@
                name="user"
                required
                autofocus
-               autocomplete="of">
+               autocomplete="of"
+               title="Inserta el usuario">
 
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password"
@@ -40,7 +41,9 @@
                class="form-control"
                placeholder="Contraseña Min: 6 caracteres"
                name="password"
-               required>
+               required
+               autocomplete="of"
+               title="Inserta la contraseña">
 
         <div class="checkbox mb-3"></div>
 

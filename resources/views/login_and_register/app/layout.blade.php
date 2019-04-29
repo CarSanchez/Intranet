@@ -32,14 +32,5 @@
 
     <!-- Bootstrap -->
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-
-    <script>
-        $('#customFileLang').on('change',function(){
-            //get the file name
-            var fileName = $(this).val();
-            //replace the "Choose a file" label
-            $(this).next('.custom-file-label').html(fileName);
-        })
-    </script>
 </body>
 </html>

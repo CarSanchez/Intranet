@@ -1,3 +1,8 @@
+/* Modified the photo of the user of nav */
+#round img{
+    border-radius: 30px;
+}
+
 /* Fondo */
 .back{
     width: 100%;
@@ -6,12 +11,7 @@
     position: absolute;
 }
 
-/* Modified the photo of user of nav */
-#round img{
-    border-radius: 30px;
-}
-
-/* Position of content profile */
+/* Position of the content profile */
 .pos{
     margin: 6rem 0 0 0;
     position: relative;
@@ -39,9 +39,26 @@
     height: 10rem;
     display: block;
 }
+/* End modifies image profile */
 
 /* Size of letter of the username */
 .dropdown-toggle{
     font-size: 1.5rem;
+}
+
+/* Form of contents */
+.form-signin {
+    width: 100%;
+    max-width: 50rem;
+    padding: 15px;
+    margin: auto;
+}
+
+.form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
 }
 

@@ -72,13 +72,8 @@
 <!-- Bootstrap -->
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 
-<!-- Menu Toggle Script -->
-<script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-</script>
+<!-- Functions personalized -->
+<script src="{{ asset('js/functions.js') }}"></script>
 
 </body>
 </html>
