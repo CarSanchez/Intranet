@@ -17,9 +17,12 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        /** Redirecciona si ya estas logueado y tratas de entrar al formulario de login */
+        /**
+         * Redirecciona a la vista de logueado si ya estas logueado y
+         * tratas de entrar a un formulario que no es necesario mostrar por estar logueado
+         */
         if (Auth::guard($guard)->check()) {
-            return redirect()->route('admin');
+            return redirect()->back();
         }
 
         return $next($request);

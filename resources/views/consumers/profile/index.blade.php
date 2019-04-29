@@ -171,7 +171,7 @@
                                     </div>
 
                                     <div class="col-sm-4 col-md-4 col-lg-4">
-                                        <label for="role">Perfil</label>
+                                        <label for="role">Nivel de perfil</label>
                                         <input type="text"
                                                class="form-control"
                                                id="role"
@@ -187,18 +187,27 @@
 
                                 <div class="row mt-3">
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <label for="exampleFormControlTextarea1">Example textarea</label>
-                                        <textarea class="form-control" id="formControlTextarea" rows="3" name="notes" disabled></textarea>
+                                        <label for="exampleFormControlTextarea1">Notas del usuario</label>
+                                        <textarea class="form-control" id="formControlTextarea" rows="3" name="notes" disabled value="{{ auth()->user()->notes }}"></textarea>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="row d-flex justify-content-center mt-5">
-                                <a class="btn btn-dark btn-lg col-md-4 mr-3 ml-3 mb-3" id="re" style="display: inline" href="{{ route('auth.index') }}" >Regresar</a>
-                                <a class="btn btn-dark btn-lg col-md-4 mr-3 ml-3 mb-3" id="ca" style="display: none; color: white;" onclick="ocultarActualizar()">Cancelar</a>
-                                <a class="btn btn-primary btn-lg col-md-4 mr-3 ml-3 mb-3" id="ed" style="display: inline; color: white;" onclick="mostrarActualizar()">Editar</a>
-                                <button class="btn btn-primary btn-lg col-md-4 mr-3 ml-3 mb-3" id="up" style="display: none">Actualizar</button>
-                            </div>
+                            @if(auth()->user()->role == 'sa')
+                                <div class="row d-flex justify-content-center mt-5">
+                                    <a class="btn btn-dark btn-lg col-md-4 mr-3 ml-3 mb-3" id="re" style="display: inline" href="{{ route('auth.index') }}" >Regresar</a>
+                                    <a class="btn btn-dark btn-lg col-md-4 mr-3 ml-3 mb-3" id="ca" style="display: none; color: white;" onclick="ocultarActualizarsa()">Cancelar</a>
+                                    <a class="btn btn-primary btn-lg col-md-4 mr-3 ml-3 mb-3" id="ed" style="display: inline; color: white;" onclick="mostrarActualizarsa()">Editar</a>
+                                    <button class="btn btn-primary btn-lg col-md-4 mr-3 ml-3 mb-3" id="up" style="display: none">Actualizar</button>
+                                </div>
+                            @else
+                                <div class="row d-flex justify-content-center mt-5">
+                                    <a class="btn btn-dark btn-lg col-md-4 mr-3 ml-3 mb-3" id="re" style="display: inline" href="{{ route('auth.index') }}" >Regresar</a>
+                                    <a class="btn btn-dark btn-lg col-md-4 mr-3 ml-3 mb-3" id="ca" style="display: none; color: white;" onclick="ocultarActualizar()">Cancelar</a>
+                                    <a class="btn btn-primary btn-lg col-md-4 mr-3 ml-3 mb-3" id="ed" style="display: inline; color: white;" onclick="mostrarActualizar()">Editar</a>
+                                    <button class="btn btn-primary btn-lg col-md-4 mr-3 ml-3 mb-3" id="up" style="display: none">Actualizar</button>
+                                </div>
+                            @endif
 
                         </form>
                     </div>

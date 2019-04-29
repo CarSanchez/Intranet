@@ -48,15 +48,14 @@
                autocomplete="of">
 
         <label for="inputDateBirth">Imagen de perfil(Opcional)</label>
-        <div class="custom-file mb-3">
-            <label class="custom-file-label text-left" for="customFileLang">Elige</label>
+        <div class="form-group">
             <input type="file"
-                   class="custom-file-input"
+                   class="form-control-file"
                    id="customFileLang"
                    lang="es"
                    name="route_img"
                    value="{{ old('route_img') }}"
-                   autocomplete="of" style="opacity: 2;">
+                   autocomplete="of">
         </div>
 
         <label for="inputEmail">Correo(Opcional)</label>

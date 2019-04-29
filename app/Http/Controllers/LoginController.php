@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\LoginRequest;
 use App\Models\User;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
@@ -26,7 +27,7 @@ class LoginController extends Controller
          * Authenticate client user created, mostrar formulario si no esta autenticado
         */
         $this->middleware('guest', [
-            'only' => 'index',
+            'only' => ['index', 'login'],
         ]);
 
         $this->request = $request;
@@ -81,6 +82,6 @@ class LoginController extends Controller
         Auth::logout(); /** <- Cierra el inicio de sesion */
         Session::flush(); /** <- Elimina variables de sesion */
         Session::forget('intranet_session'); /** <- Elimina cookies de sesion por key */
-        return redirect()->route('admin'); /** <- Redirige a una pagina */
+        return redirect()->back(); /** <- Redirige a una pagina */
     }
 }

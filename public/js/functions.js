@@ -13,6 +13,16 @@ var btn_2 = document.getElementById('up');
 var btn_3 = document.getElementById('re');
 var btn_4 = document.getElementById('ca');
 
+function mostrarActualizarsa() {
+    mostrarActualizar();
+    document.getElementById("role").removeAttribute("disabled");
+}
+
+function ocultarActualizarsa() {
+    ocultarActualizar();
+    document.getElementById("role").setAttribute("disabled", "");
+}
+
 function mostrarActualizar() {
     /* Buttons */
     btn_1.style.display = 'none';

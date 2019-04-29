@@ -19,10 +19,11 @@ Route::get('/', function () {
 /**
  * Routes of register
 */
-Route::get('/register', 'RegisterController@index')->name('register.index');
+Route::group(['middleware' => ['web', 'guest']], function () {
+    Route::get('/register', 'RegisterController@index')->name('register.index');
 
-Route::post('/register', 'RegisterController@store')->name('register.store');
-
+    Route::post('/register', 'RegisterController@store')->name('register.store');
+});
 
 /**
  * Routes of login
