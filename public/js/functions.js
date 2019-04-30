@@ -1,3 +1,11 @@
+window.onload = function() {
+    alert("evento load detectado!");
+    window.location.hash="no-back-button";
+    window.location.hash="Again-No-back-button" //chrome
+    window.onhashchange=function(){window.location.hash="no-back-button";}
+};
+
+
 <!-- Menu Toggle Script -->
 $("#menu-toggle").click(function(e) {
     e.preventDefault();

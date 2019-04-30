@@ -75,5 +75,11 @@
 <!-- Functions personalized -->
 <script src="{{ asset('js/functions.js') }}"></script>
 
+<script type="text/javascript">
+    /**window.onbeforeunload = function() {
+        return "¿Estás seguro que deseas salir de la actual página?"
+    }*/
+</script>
+
 </body>
 </html>
