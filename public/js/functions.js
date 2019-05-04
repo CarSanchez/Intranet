@@ -1,19 +1,19 @@
+/* Function of no back button */
 window.onload = function() {
-    alert("evento load detectado!");
     window.location.hash="no-back-button";
-    window.location.hash="Again-No-back-button" //chrome
+    window.location.hash="Again-No-back-button"; //chrome
     window.onhashchange=function(){window.location.hash="no-back-button";}
 };
 
 
-<!-- Menu Toggle Script -->
+<!-- Menu Toggle Script of the view principal admin or user -->
 $("#menu-toggle").click(function(e) {
     e.preventDefault();
     $("#wrapper").toggleClass("toggled");
 });
 
 
-/* Functions of update button */
+/* Functions of update button of view profile*/
 /** Attributes of buttons*/
 var btn_1 = document.getElementById('ed');
 var btn_2 = document.getElementById('up');
@@ -62,4 +62,5 @@ function ocultarActualizar() {
     document.getElementById("user").setAttribute("disabled", "");
     document.getElementById("formControlTextarea").setAttribute("disabled", "");
 }
+/* End functions of buttons of profile */
 

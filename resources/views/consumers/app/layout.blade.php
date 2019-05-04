@@ -48,8 +48,8 @@
                         {{ auth()->user()->name }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuUserLink">
-                        <a class="dropdown-item" href="{{ route('profile.index') }}"><i class="far fa-user"></i> Perfil</a>
                         <a class="dropdown-item" href="{{ route('index') }}"><i class="fas fa-home"></i> Inicio</a>
+                        <a class="dropdown-item" href="{{ route('profile.index') }}"><i class="far fa-user"></i> Perfil</a>
                         <form method="POST" action="{{ route('logout') }}">
                             {{ csrf_field() }}
                             <button class="dropdown-item" href=""><i class="fas fa-sign-out-alt"></i> Logout</button>
@@ -74,12 +74,6 @@
 
 <!-- Functions personalized -->
 <script src="{{ asset('js/functions.js') }}"></script>
-
-<script type="text/javascript">
-    /**window.onbeforeunload = function() {
-        return "¿Estás seguro que deseas salir de la actual página?"
-    }*/
-</script>
 
 </body>
 </html>

@@ -32,5 +32,9 @@
 
     <!-- Bootstrap -->
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+    <!-- Functions personalized -->
+    <script src="{{ asset('js/functions.js') }}"></script>
+
 </body>
 </html>
