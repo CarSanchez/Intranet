@@ -18,6 +18,7 @@ class UserController extends Controller
     public function __construct(User $user)
     {
         $this->middleware('auth');
+        $this->middleware('sa', ['only' => 'index']);
 
         $this->User = $user;
     }
@@ -32,6 +33,11 @@ class UserController extends Controller
         return view('consumers.profile.index');
     }
 
+    /**
+     * Display a listing of the admin.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function showAdmin()
     {
         return view('consumers.admins.index');

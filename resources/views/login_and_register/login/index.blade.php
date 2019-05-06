@@ -16,12 +16,6 @@
             </div>
         @endif
 
-        @if (session()->has('flash'))
-            <div class="alert alert-danger text-center">
-                {{ session('flash') }}
-            </div>
-        @endif
-
         <h1 class="h3 mb-3 font-weight-normal">Inicia sesión</h1>
 
         <label for="inputUser" class="sr-only">Usuario</label>

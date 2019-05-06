@@ -38,49 +38,11 @@
                 @endif
 
                 <nav class="nav nav-pills nav-fill mt-5" id="nav-tab" role="tablist">
-                    <a class="nav-item nav-link" id="nav-pass-tab" data-toggle="tab" href="#nav-pass" role="tab" aria-controls="nav-pass" aria-selected="false">Actualizar imagen de perfil</a>
                     <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true">Datos Personales</a>
-                    <a class="nav-item nav-link" id="nav-payment-tab" data-toggle="tab" href="#nav-payment" role="tab" aria-controls="nav-payment" aria-selected="false">Formas de pago</a>
-                    <a class="nav-item nav-link" id="nav-shop-tab" data-toggle="tab" href="#nav-shop" role="tab" aria-controls="nav-shop" aria-selected="false">Compras</a>
                 </nav>
 
                 <div class="tab-content" id="nav-tabContent">
                     <hr class="mb-4">
-
-                    <!-- Cambio de foto de perfil -->
-                    <div class="tab-pane fade show" id="nav-pass" role="tabpanel" aria-labelledby="nav-pass-tab">
-                        <form class="form-signin" method="POST" action="">
-                            {{ method_field('PUT') }}
-                            {{ csrf_field() }}
-                            <div class="d-flex justify-content-center row">
-                                <div class="col-md-7 mb-3">
-                                    <label for="pass-new">Contraseña anterior</label>
-                                    <input type="password"
-                                           class="form-control {{ $errors->has('pass_old') ? 'is-invalid' : '' }}"
-                                           name="pass_old">
-                                </div>
-
-                                <div class="col-md-7 mb-3">
-                                    <label for="pass-new">Contraseña nueva</label>
-                                    <input type="password"
-                                           class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
-                                           name="password">
-                                </div>
-
-                                <div class="col-md-7 mb-3">
-                                    <label for="pass-rep">Repita la contraseña</label>
-                                    <input type="password"
-                                           class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
-                                           name="password_confirmation">
-                                </div>
-                            </div>
-
-                            <div class="row d-flex justify-content-center">
-                                <a href="{{ route('index') }}" class="btn btn-dark btn-lg col-md-4 mr-3 ml-3 mb-3">Regresar</a>
-                                <button class="btn btn-primary btn-lg col-md-4 mr-3 ml-3 mb-3" type="submit">Actualizar</button>
-                            </div>
-                        </form>
-                    </div>
 
                     <!-- Datos personales -->
                     <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">

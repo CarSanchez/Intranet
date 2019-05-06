@@ -61,15 +61,18 @@ class LoginController extends Controller
                     return redirect()->route('admin');
                 }
                 else{
-                    return redirect()->route('auth.index')->withErrors(['user' => 'Usuario o contraseña incorrecto'])->withInput();
+                    return redirect()->route('auth.index')
+                        ->withErrors(['user' => 'Usuario o contraseña incorrecto'])->withInput();
                 }
             }
             else{
-                return redirect()->route('auth.index')->withErrors(['Tu usuario no está activo, contacta al administrador'])->withInput();
+                return redirect()->route('auth.index')
+                    ->withErrors(['user' => 'Tu usuario no está activo, contacta al administrador'])->withInput();
             }
         }
         else{
-            return redirect()->route('auth.index')->withErrors(['Tu usuario no existe, contacta al administrador'])->withInput();
+            return redirect()->route('auth.index')
+                ->withErrors(['user' => 'Tu usuario no existe, registrate ó contacta al administrador.'])->withInput();
         }
     }
 

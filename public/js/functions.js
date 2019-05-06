@@ -1,4 +1,4 @@
-/* Function of no back button */
+/* Function of no back button all views */
 window.onload = function() {
     window.location.hash="no-back-button";
     window.location.hash="Again-No-back-button"; //chrome
@@ -6,14 +6,14 @@ window.onload = function() {
 };
 
 
-<!-- Menu Toggle Script of the view principal admin or user -->
+<!-- Menu Toggle Script of the view principal admin or user view after login -->
 $("#menu-toggle").click(function(e) {
     e.preventDefault();
     $("#wrapper").toggleClass("toggled");
 });
 
 
-/* Functions of update button of view profile*/
+/* Functions of update button of view profile view profile */
 /** Attributes of buttons*/
 var btn_1 = document.getElementById('ed');
 var btn_2 = document.getElementById('up');
