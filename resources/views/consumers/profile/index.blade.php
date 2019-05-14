@@ -7,14 +7,14 @@
     <div class="container pos">
         <div class="py-5 text-center">
                 @if(auth()->user()->route_img == null)
-                    <div class="ml-auto mr-auto mt-4" style="background: url('{{ asset(auth()->user()->route_img) }}'); background-size: cover" id="round_profile">
-                        <a class="pen" href="">
+                    <div class="ml-auto mr-auto mt-4" style="background-size: cover" id="round_profile">
+                        <a class="pen" href="{{ route('changeImage.show') }}">
                             <span class="fas fa-user fa-7x mr-2" aria-hidden="true" style="color: black;"></span>
                         </a>
                     </div>
                 @else
                     <div class="ml-auto mr-auto" style="background: url('{{ asset(auth()->user()->route_img) }}'); background-size: cover" id="round_profile">
-                        <a class="pen" href=""></a>
+                        <a class="pen" href="{{ route('changeImage.show') }}"></a>
                     </div>
                 @endif
             <h2>¡Hola {{ auth()->user()->name }}!</h2>

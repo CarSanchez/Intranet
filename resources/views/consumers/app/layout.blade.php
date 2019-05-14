@@ -13,6 +13,8 @@
 
     <!-- Estilos -->
     <link rel="stylesheet" href="{{ asset('css/styleAdmin.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styleUpdateImage') }}">
+
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/simple-sidebar.css') }}" rel="stylesheet">
 
@@ -63,9 +65,11 @@
 
 @if($errors->any())
     <div class="alert alert-danger">
-        @foreach($errors->all() as $error)
-            {{ $error }}
-        @endforeach
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
     </div>
 @endif
 
@@ -91,6 +95,7 @@
 
 <!-- Functions personalized -->
 <script src="{{ asset('js/functions.js') }}"></script>
+<script src="{{ asset('js/functionsUpdateImage.js') }}"></script>
 
 </body>
 </html>

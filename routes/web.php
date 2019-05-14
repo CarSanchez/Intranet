@@ -50,5 +50,9 @@ Route::prefix('dashboard')->group(function() {
          * Routes of the profile of user
         */
         Route::get('/profile', 'UserController@index')->name('profile.index');
+
+        Route::prefix('profile')->group(function() {
+            Route::get('/updateImage', 'UserController@showIndexUpdateImage')->name('changeImage.show');
+        });
     });
 });

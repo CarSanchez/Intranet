@@ -23,7 +23,7 @@ class UserController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Show the view profile index of user
      *
      * @return \Illuminate\Http\Response
      */
@@ -33,13 +33,23 @@ class UserController extends Controller
     }
 
     /**
-     * Display a listing of the admin.
+     * Show view index of the admin.
      *
      * @return \Illuminate\Http\Response
      */
     public function showAdmin()
     {
         return view('consumers.admins.index');
+    }
+
+    /**
+     * Show view index of the change image.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showIndexUpdateImage()
+    {
+        return view('consumers.profile.updateImage.index');
     }
 
     /**

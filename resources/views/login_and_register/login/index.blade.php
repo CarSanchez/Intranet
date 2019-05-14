@@ -10,9 +10,20 @@
 
         @if($errors->any())
             <div class="alert alert-danger">
-                @foreach($errors->all() as $error)
-                    {{ $error }}
-                @endforeach
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        @if (session()->has('flash'))
+            <div class="alert alert-danger text-center">
+                {{ session('flash') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
         @endif
 

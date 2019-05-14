@@ -11,9 +11,21 @@
     position: absolute;
 }
 
+.back_up{
+    width: 100%;
+    height: 10rem;
+    background-size: contain;
+    position: absolute;
+}
+
 /* Position of the content profile */
 .pos{
     margin: 6rem 0 0 0;
+    position: relative;
+}
+
+.pos_up{
+    margin: 0.5rem 0 0 0;
     position: relative;
 }
 
@@ -38,6 +50,12 @@
     width: 10rem;
     height: 10rem;
     display: block;
+}
+
+#round_profile_up{
+    width: 15rem;
+    height: 15rem;
+    border-radius: 10rem;
 }
 /* End modifies image profile */
 

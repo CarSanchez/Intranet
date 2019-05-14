@@ -18,6 +18,15 @@
             </div>
         @endif
 
+        @if (session()->has('flash'))
+            <div class="alert alert-danger text-center">
+                {{ session('flash') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+
         <h1 class="h3 mb-3 font-weight-normal">Registrate</h1>
 
         <label for="inputName">Nombre(s)*</label>
@@ -58,13 +67,14 @@
                    autocomplete="of">
         </div>
 
-        <label for="inputEmail">Correo(Opcional)</label>
+        <label for="inputEmail">Correo*</label>
         <input type="email"
                class="form-control mb-3"
                placeholder="Correo"
                name="email"
                value="{{ old('email') }}"
-               autocomplete="of">
+               autocomplete="of"
+               required>
 
         <label for="inputUser">Usuario*</label>
         <input type="text"
