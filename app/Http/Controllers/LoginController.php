@@ -85,6 +85,6 @@ class LoginController extends Controller
         Auth::logout(); /** <- Cierra el inicio de sesion */
         Session::flush(); /** <- Elimina variables de sesion */
         Session::forget('intranet_session'); /** <- Elimina cookies de sesion por key */
-        return redirect()->back(); /** <- Redirige a una pagina */
+        return redirect()->route('index'); /** <- Redirige a una pagina */
     }
 }

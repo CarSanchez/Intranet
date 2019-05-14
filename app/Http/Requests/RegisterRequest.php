@@ -29,7 +29,7 @@ class RegisterRequest extends FormRequest
             'lastName' => ['bail', 'required', 'max:100'],
             'date' => ['bail', 'required'],
             'route_img' => ['bail', 'image', 'mimes:jpg,png,jpeg,gif,svg', 'max:2048'],
-            'email' => ['bail', 'max:100', Rule::unique('users', 'email')],
+            'email' => ['bail', 'required', 'max:100', Rule::unique('users', 'email')],
             $this->username() => ['bail', 'required', 'min:2', 'max:20', Rule::unique('users', 'user')],
             'password' => ['bail', 'required', 'min:6'],
         ];
@@ -48,6 +48,7 @@ class RegisterRequest extends FormRequest
             'lastName.required' => 'Los apellidos son requeridos.',
             'lastName.max' => 'los apellidos superan los 100 caracteres.',
             'date.required' => 'La fecha de nacimiento es requerida.',
+            'email.required' => 'El correo es obligatorio.',
             'email.max' => 'El correo supera los 100 carcteres.',
             'email.unique' => 'Este correo ya existe, intente con otro o inicie sesión.',
             $this->username().'required' => 'El usuario es requerido.',

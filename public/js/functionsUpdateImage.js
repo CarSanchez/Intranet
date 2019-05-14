@@ -5,18 +5,6 @@ $(document).ready( function() {
         input.trigger('fileselect', [label]);
     });
 
-    $('.btn-file :file').on('fileselect', function(event, label) {
-
-        var input = $(this).parents('.input-group').find(':text'),
-            log = label;
-
-        if( input.length ) {
-            input.val(log);
-        } else {
-            if( log ) alert(log);
-        }
-
-    });
     function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
