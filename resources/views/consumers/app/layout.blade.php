@@ -27,18 +27,20 @@
 </head>
 <body>
 
-<nav class="navbar sticky-top navbar-dark bg-primary navbar-expand-md">
+<nav class="navbar sticky-top navbar-dark bg-success navbar-expand-md">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="{{ route('admin') }}" id="log">
             <img src="{{ asset('img/nav/log-white.png') }}" width="250" height="70" class="d-inline-block align-top">
-            <button class="btn btn-primary" id="menu-toggle"><span class="navbar-toggler-icon"></span></button>
+            @if(Route::is('admin'))
+                <button class="btn btn-success" id="menu-toggle"><span class="navbar-toggler-icon"></span></button>
+            @endif
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapseNavbar" aria-controls="collapseNavbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapseNavbar">
             <div class="navbar-nav text-center ml-auto">
-                <a class="nav-item nav-link" href="#" id="round">
+                <a class="nav-item nav-link" href="{{ route('profile.index') }}" id="round">
                     @if(auth()->user()->route_img == null)
                         <span class="fas fa-user fa-2x mr-2 nav-link" aria-hidden="true" style="color: white;"></span>
                     @else
@@ -81,6 +83,33 @@
         </button>
     </div>
 @endif
+<!--
+{{--@if($errors->any())
+    <div class="alert alert-danger">
+        @foreach($errors->all() as $error)
+            {{ $error }}
+        @endforeach
+    </div>
+@endif
+
+@if (session()->has('flash'))
+    <div class="alert alert-danger text-center">
+        {{ session('flash') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
+
+@if (session()->has('flash_info'))
+    <div class="alert alert-info text-center">
+        {{ session('flash_info') }}
+    </div>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+@endif--}}
+-->
 
 @yield('content')
 

@@ -22,43 +22,39 @@
         <div class="row d-flex justify-content-center">
             <!-- Imagen -->
             <div class="container">
-                <form method="POST" action="#" class="form-signin" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('changeImage.update') }}" class="form-signin" enctype="multipart/form-data">
                     {{ method_field('PUT') }}
                     {{ csrf_field() }}
 
                     @if($errors->any())
                         <div class="alert alert-danger">
-                            @foreach($errors->all() as $error)
-                                {{ $error }}
-                            @endforeach
-                        </div>
-                    @endif
-
-                    @if (session()->has('flash'))
-                        <div class="alert alert-info text-center">
-                            {{ session('flash') }}
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
                     @endif
 
                     <div class="row">
-                        <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="col-sm-12 col-md-12 col-lg-12 text-center">
                             <label for="nombre">Selecciona imagen</label>
                             <!--<label class="custom-file-label" for="customFile">Choose file</label>-->
                             <!--<input type="file" class="custom-file-input" id="customFile">-->
-
-                            <!--<input type="file"
-                                   class="form-control-file"
-                                   id="customFileLang"
-                                   lang="es"
-                                   name="route_img"
-                                   value="{{ old('route_img') }}"
-                                   autocomplete="of">-->
                             <div class="form-group">
-                                <div class="input-group">
+                                <div class="input-group d-flex justify-content-center">
                                     <span class="input-group-btn">
-                                        <span class="btn btn-default btn-file">
-                                            <input type="file" id="imgInp">
-                                        </span>
+                                        <input type="file"
+                                               class="form-control-file"
+                                               lang="es"
+                                               name="route_img"
+                                               value="{{ old('route_img') }}"
+                                               autocomplete="of"
+                                               required
+                                               id="imgInp">
                                     </span>
                                 </div>
                             </div>

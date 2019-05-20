@@ -31,9 +31,12 @@
                     </div>
                 @endif
 
-                @if (session()->has('flash'))
+                @if (session()->has('flash_info'))
                     <div class="alert alert-info text-center">
-                        {{ session('flash') }}
+                        {{ session('flash_info') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                 @endif
 

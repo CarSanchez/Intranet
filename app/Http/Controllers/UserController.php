@@ -4,22 +4,37 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Http\Requests\RegisterRequest;
+use App\Http\Requests\UpdateImageRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
     /**
      * Attributes
     */
-    protected $User;
+    protected $request;
+    protected $user;
 
     /**
      * Method construct
     */
-    public function __construct(User $user)
+    public function __construct(Request $request, User $user)
     {
-        $this->middleware('auth');
+        /*$this->middleware('auth');*/ /* <- aplica el middleware para todo el controlador */
 
-        $this->User = $user;
+        $this->request = $request;
+        $this->user = $user;
+    }
+
+    /**
+     * Show index of register
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function registerIndex()
+    {
+        return view('login_and_register.register.index');
     }
 
     /**
@@ -53,6 +68,39 @@ class UserController extends Controller
     }
 
     /**
+     * Update the image.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function updateImage(UpdateImageRequest $updateImageRequest)
+    {
+        $validates = $updateImageRequest->validated();
+
+        $user = $this->user->findOrFail(Auth::user()->id);
+
+        if ($updateImageRequest->hasFile('route_img'))
+        {
+            $file = $updateImageRequest->file('route_img');
+            /**$name = $validates['user'].'_'.$file->getClientOriginalName();*/ /** <- Obtiene el nombre de la imagen*/
+            $name = Auth::user()->user.'_'.$file->getClientOriginalExtension();
+            $file->move(public_path('/img/perfiles/'.Auth::user()->user), $name);
+            $route = 'img/perfiles/'.Auth::user()->user.'/'.$name;
+        }
+        else
+        {
+            return redirect()->back()->withErrors('No hay una imagen seleccionada.');
+        }
+
+        $attributes = [
+            'route_img' => $route,
+        ];
+
+        $user->update($attributes);
+
+        return redirect()->route('profile.index')->with('flash_info', 'Cambio de imagen exitoso.');
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -68,9 +116,38 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RegisterRequest $registerRequest)
     {
-        //
+        $validates = $registerRequest->validated();
+
+        if ($registerRequest->hasFile('route_img'))
+        {
+            $file = $registerRequest->file('route_img');
+            /**$name = $validates['user'].'_'.$file->getClientOriginalName();*/ /** <- Obtiene el nombre de la imagen*/
+            $name = $validates['user'].'_'.$file->getClientOriginalExtension();
+            $file->move(public_path('/img/perfiles/'.$validates['user']), $name);
+            $route = 'img/perfiles/'.$validates['user'].'/'.$name;
+        }
+        else
+        {
+            $route = null;
+        }
+
+        $attributes = [
+            'name' => $validates['name'],
+            'lastName' => $validates['lastName'],
+            'date' => $validates['date'],
+            'route_img' => $route,
+            'email' => $validates['email'],
+            'user' => $validates['user'],
+            'password' => bcrypt($validates['password']),
+        ];
+
+        $this->user->create($attributes);
+
+        if(Auth::attempt([$this->user() => $validates['user'], 'password' => $validates['password']])){
+            return redirect()->route('admin');
+        }
     }
 
     /**
@@ -116,5 +193,13 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Function of get the user
+     */
+    public function user()
+    {
+        return 'user';
     }
 }

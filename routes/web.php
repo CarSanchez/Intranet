@@ -20,9 +20,9 @@ Route::get('/', function () {
  * Routes of register
 */
 Route::group(['middleware' => ['web', 'guest']], function () {
-    Route::get('/register', 'RegisterController@index')->name('register.index');
+    Route::get('/register', 'UserController@registerIndex')->name('register.index');
 
-    Route::post('/register', 'RegisterController@store')->name('register.store');
+    Route::post('/register', 'UserController@store')->name('register.store');
 });
 
 /**
@@ -53,6 +53,7 @@ Route::prefix('dashboard')->group(function() {
 
         Route::prefix('profile')->group(function() {
             Route::get('/updateImage', 'UserController@showIndexUpdateImage')->name('changeImage.show');
+            Route::put('/updateImage', 'UserController@updateImage')->name('changeImage.update');
         });
     });
 });
