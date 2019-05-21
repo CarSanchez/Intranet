@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\UpdateImageRequest;
+use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -74,7 +75,7 @@ class UserController extends Controller
      */
     public function updateImage(UpdateImageRequest $updateImageRequest)
     {
-        $validates = $updateImageRequest->validated();
+        $updateImageRequest->validated();
 
         $user = $this->user->findOrFail(Auth::user()->id);
 
@@ -139,6 +140,7 @@ class UserController extends Controller
             'date' => $validates['date'],
             'route_img' => $route,
             'email' => $validates['email'],
+            'ext' => $validates['ext'],
             'user' => $validates['user'],
             'password' => bcrypt($validates['password']),
         ];
@@ -179,9 +181,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateUserRequest $updateUserRequest)
     {
-        //
+        $validates = $updateUserRequest->validated();
     }
 
     /**

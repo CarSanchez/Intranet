@@ -31,7 +31,7 @@
 
         <label for="inputName">Nombre(s)*</label>
         <input type="text"
-               class="form-control mb-3"
+               class="form-control mb-3 {{ $errors->has('name') ? 'is-invalid' : '' }}"
                placeholder="Nombre(s) Eje. José"
                name="name"
                value="{{ old('name') }}"
@@ -40,7 +40,7 @@
 
         <label for="inputLastName">Apellidos*</label>
         <input type="text"
-               class="form-control mb-3"
+               class="form-control mb-3 {{ $errors->has('lastName') ? 'is-invalid' : '' }}"
                placeholder="Apellidos Eje. Salas Ortiz"
                name="lastName"
                value="{{ old('lastName') }}"
@@ -49,7 +49,7 @@
 
         <label for="inputDateBirth">Fecha de nacimiento*</label>
         <input type="date"
-               class="form-control mb-3"
+               class="form-control mb-3 {{ $errors->has('date') ? 'is-invalid' : '' }}"
                placeholder="Fecha de nacimiento"
                name="date"
                value="{{ old('date') }}"
@@ -59,7 +59,7 @@
         <label for="inputDateBirth">Imagen de perfil(Opcional)</label>
         <div class="form-group">
             <input type="file"
-                   class="form-control-file"
+                   class="form-control-file {{ $errors->has('route_img') ? 'is-invalid' : '' }}"
                    id="customFileLang"
                    lang="es"
                    name="route_img"
@@ -69,16 +69,25 @@
 
         <label for="inputEmail">Correo*</label>
         <input type="email"
-               class="form-control mb-3"
+               class="form-control mb-3 {{ $errors->has('email') ? 'is-invalid' : '' }}"
                placeholder="Correo"
                name="email"
                value="{{ old('email') }}"
                autocomplete="of"
                required>
 
+        <label for="inputExt">Extención*</label>
+        <input type="text"
+               class="form-control mb-3 {{ $errors->has('ext') ? 'is-invalid' : '' }}"
+               placeholder="Extención"
+               name="ext"
+               value="{{ old('ext') }}"
+               autocomplete="of"
+               required>
+
         <label for="inputUser">Usuario*</label>
         <input type="text"
-               class="form-control mb-3"
+               class="form-control mb-3 {{ $errors->has('user') ? 'is-invalid' : '' }}"
                placeholder="Usuario Min: 2 caracteres"
                name="user"
                value="{{ old('user') }}"

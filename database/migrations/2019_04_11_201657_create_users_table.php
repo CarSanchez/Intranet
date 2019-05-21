@@ -20,10 +20,11 @@ class CreateUsersTable extends Migration
             $table->string('lastName');
             $table->date('date')->nullable();
             $table->string('route_img')->nullable();
-            $table->string('email', 100)->unique()->nullable();
+            $table->string('email', 100)->unique();
+            $table->integer('ext')->unique();
             $table->string('user', 20)->unique();
             $table->string('password');
-            $table->integer('active')->default('1');
+            $table->boolean('active')->default(true);
             $table->string('role')->default('user');
             $table->string('notes')->nullable();
 

@@ -17,7 +17,8 @@ class UserSeeder extends Seeder
             'lastName' => 'admin',
             'date' => date('Y-m-d H:i:s'),
             'route_img' => '',
-            'email' => 'program2@pintumex.com.mx',
+            'email' => 'sa@pintumex.com.mx',
+            'ext' => '0000',
             'user' => 'sa',
             'password' => bcrypt('Intr@net19'),
             'active' => '1',
@@ -27,11 +28,27 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
+            'name' => 'Agustín',
+            'lastName' => 'Feregrino',
+            'date' => date('Y-m-d H:i:s'),
+            'route_img' => '',
+            'email' => 'program2@pintumex.com.mx',
+            'ext' => '1127',
+            'user' => 'program2',
+            'password' => bcrypt('kklaus'),
+            'active' => '1',
+            'role' => 'sa',
+            'notes' => 'This user is the admin with permissions of sa',
+            /*'remember_token' => Str::random(10),*/
+        ]);
+
+        User::create([
             'name' => 'Carmen',
             'lastName' => 'Sanchez Cruz',
             'date' => '1995-07-16',
             'route_img' => '',
             'email' => 'sistem@pintumex.com.mx',
+            'ext' => '1123',
             'user' => 'sistemas1',
             'password' => bcrypt('Sistemas1'),
             'active' => '1',
@@ -46,6 +63,7 @@ class UserSeeder extends Seeder
             'date' => '1979-12-26',
             'route_img' => '',
             'email' => 'soporteti@pintumex.com.mx',
+            'ext' => '1125',
             'user' => 'sistemas2',
             'password' => bcrypt('Sistemas2'),
             'active' => '1',
@@ -60,6 +78,7 @@ class UserSeeder extends Seeder
             'date' => date('Y-m-d H:i:s'),
             'route_img' => '',
             'email' => 'asistemas@pintumex.com.mx',
+            'ext' => '1126',
             'user' => 'sistemas3',
             'password' => bcrypt('p@ssword'),
             'active' => '1',

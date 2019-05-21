@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class RegisterRequest extends FormRequest
+class UpdateUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,9 +27,7 @@ class RegisterRequest extends FormRequest
             'name' => ['bail', 'required', 'max:50'],
             'lastName' => ['bail', 'required', 'max:100'],
             'date' => ['bail', 'required'],
-            'route_img' => ['bail', 'image', 'mimes:jpg,png,jpeg,gif,svg', 'max:2048'],
             'email' => ['bail', 'required', 'max:100', Rule::unique('users', 'email')],
-            'ext' => ['bail', 'required', 'min:4', Rule::unique('users', 'ext')],
             $this->username() => ['bail', 'required', 'min:2', 'max:20', Rule::unique('users', 'user')],
             'password' => ['bail', 'required', 'min:6'],
         ];
@@ -51,14 +48,11 @@ class RegisterRequest extends FormRequest
             'date.required' => 'La fecha de nacimiento es requerida.',
             'email.required' => 'El correo es obligatorio.',
             'email.max' => 'El correo supera los 100 carcteres.',
-            'email.unique' => 'Este correo ya existe, intente con otro o inicie sesión.',
-            'ext.required' => 'La extención es requerida.',
-            'ext.min' => 'La extención debe ser minimo de 4 caracteres.',
-            'ext.unique' => 'La extención ya esta ocupada intente con otra.',
+            'email.unique' => 'Este correo ya existe, intente con otro.',
             $this->username().'required' => 'El usuario es requerido.',
             $this->username().'min' => 'El usuario minimo debe ser de 2 caracteres.',
             $this->username().'max' => 'El usuario debe ser maximo de 20 caracteres.',
-            $this->username().'unique' => 'Este usuario ya existe, intente con otro o inicie sesión.',
+            $this->username().'unique' => 'Este usuario ya existe, intente con otro.',
             'password.required' => 'El password es requerido.',
             'password.min' => 'El password debe ser minimo de 6 caracteres.'
         ];

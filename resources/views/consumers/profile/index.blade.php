@@ -41,7 +41,7 @@
                 @endif
 
                 <nav class="nav nav-pills nav-fill mt-5" id="nav-tab" role="tablist">
-                    <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true">Datos Personales</a>
+                    <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true">Datos</a>
                 </nav>
 
                 <div class="tab-content" id="nav-tabContent">
@@ -54,6 +54,9 @@
                             {{ csrf_field() }}
 
                             <div class="container">
+                                <div class="row">
+                                    <h1>Personales</h1>
+                                </div>
                                 <div class="row">
                                     <div class="col-sm-4 col-md-4 col-lg-4 ">
                                         <label for="nombre">Nombre</label>
@@ -88,7 +91,7 @@
                                     </div>
 
                                     <div class="col-sm-4 col-md-4 col-lg-4">
-                                        <label for="date">Cumpleaños</label>
+                                        <label for="date">Fecha de nacimiento</label>
                                         <input type="date"
                                                class="form-control"
                                                id="date"
@@ -104,6 +107,9 @@
                                     </div>
                                 </div>
 
+                                <div class="row mt-4">
+                                    <h1>Laborales</h1>
+                                </div>
                                 <div class="row mt-3">
                                     <div class="col-sm-4 col-md-4 col-lg-4">
                                         <label for="email">Email</label>
@@ -156,7 +162,7 @@
                                         <textarea class="form-control" id="formControlTextarea" rows="3" name="notes" disabled value="{{ auth()->user()->notes }}"></textarea>
                                     </div>
                                 </div>
-                            </div>
+                            </>
 
                             @if(auth()->user()->role == 'sa')
                                 <div class="row d-flex justify-content-center mt-5">

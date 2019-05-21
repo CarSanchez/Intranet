@@ -49,11 +49,19 @@ Route::prefix('dashboard')->group(function() {
         /**
          * Routes of the profile of user
         */
-        Route::get('/profile', 'UserController@index')->name('profile.index');
-
         Route::prefix('profile')->group(function() {
-            Route::get('/updateImage', 'UserController@showIndexUpdateImage')->name('changeImage.show');
-            Route::put('/updateImage', 'UserController@updateImage')->name('changeImage.update');
+            /** Route index of profile **/
+            Route::get('/', 'UserController@index')->name('profile.index');
+
+            /** Routes for change the image **/
+            Route::prefix('updateImage')->group(function () {
+                Route::get('/', 'UserController@showIndexUpdateImage')->name('changeImage.show');
+                Route::put('/', 'UserController@updateImage')->name('changeImage.update');
+            });
+
+            Route::prefix('updateImage')->group(function () {
+
+            });
         });
     });
 });

@@ -23,6 +23,7 @@ class User extends Authenticatable
         'date',
         'route_img',
         'email',
+        'ext',
         'user',
         'password',
         'active',
@@ -57,7 +58,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'active' => 'boolean',
+        'active' => 'int',
         'created_at' => 'datetime:Y-m-d',
     ];
 }

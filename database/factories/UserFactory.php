@@ -21,6 +21,7 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
         'date' => $faker->date('Y-m-d'),
         'route_img' => '',
         'email' => $faker->unique()->safeEmail,
+        'ext' => $faker->randomNumber(4),
         'user' => $faker->unique()->userName,
         'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
         'active' => '1',
