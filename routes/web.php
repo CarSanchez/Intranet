@@ -44,7 +44,9 @@ Route::prefix('dashboard')->group(function() {
         /**
          * Routes of admin
          */
-        Route::get('/admin', 'UserController@showAdmin')->name('admin');
+        Route::prefix('admin')->group(function () {
+            Route::get('/', 'UserController@showAdmin')->name('admin');
+        });
 
         /**
          * Routes of the profile of user
@@ -59,9 +61,8 @@ Route::prefix('dashboard')->group(function() {
                 Route::put('/', 'UserController@updateImage')->name('changeImage.update');
             });
 
-            Route::prefix('update')->group(function () {
-                Route::put('/', 'UserController@update')->name('dates.update');
-            });
+            /** Route for change the dates of the user **/
+            Route::put('/update', 'UserController@update')->name('dates.update');
         });
     });
 });

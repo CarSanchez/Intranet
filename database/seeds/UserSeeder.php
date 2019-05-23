@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
             'user' => 'sa',
             'password' => bcrypt('Intr@net19'),
             'active' => '1',
-            'role' => 'sa',
+            'role_id' => 1,
             'notes' => 'This user is the super administrator with all permissions',
             /*'remember_token' => Str::random(10),*/
         ]);
@@ -37,7 +37,7 @@ class UserSeeder extends Seeder
             'user' => 'program2',
             'password' => bcrypt('kklaus'),
             'active' => '1',
-            'role' => 'sa',
+            'role_id' => 1,
             'notes' => 'This user is the admin with permissions of sa',
             /*'remember_token' => Str::random(10),*/
         ]);
@@ -52,7 +52,7 @@ class UserSeeder extends Seeder
             'user' => 'sistemas1',
             'password' => bcrypt('Sistemas1'),
             'active' => '1',
-            'role' => 'sa',
+            'role_id' => 1,
             'notes' => 'This user is the admin with permissions of sa',
             /*'remember_token' => Str::random(10),*/
         ]);
@@ -67,7 +67,7 @@ class UserSeeder extends Seeder
             'user' => 'sistemas2',
             'password' => bcrypt('Sistemas2'),
             'active' => '1',
-            'role' => 'sa',
+            'role_id' => 1,
             'notes' => 'This user is the admin with permissions of sa',
             /*'remember_token' => Str::random(10),*/
         ]);
@@ -82,7 +82,7 @@ class UserSeeder extends Seeder
             'user' => 'sistemas3',
             'password' => bcrypt('p@ssword'),
             'active' => '1',
-            'role' => 'sa',
+            'role_id' => 1,
             'notes' => 'This user is the admin with permissions of sa',
             /*'remember_token' => Str::random(10),*/
         ]);
@@ -94,7 +94,7 @@ class UserSeeder extends Seeder
         factory(User::class)->times(1)->create([
             'password' => '$2y$10$OW4wSONu2ZNvf4pnbdrQ3uuJklE4oaZ3QVooH89nNvqKj07PNKT7K', //secret2
             'active' => false,
-            'role' => 'user',
+            'role_id' => 3,
             'notes' => 'This user is the a user with position user',
         ]);
     }

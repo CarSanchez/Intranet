@@ -25,7 +25,7 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
         'user' => $faker->unique()->userName,
         'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
         'active' => '1',
-        'role' => 'admin',
+        'role_id' => 2,
         'notes' => 'This user is the a admin user with position direction',
         'remember_token' => Str::random(10),
     ];

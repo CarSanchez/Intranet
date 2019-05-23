@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('user', 20)->unique();
             $table->string('password');
             $table->boolean('active')->default(true);
-            $table->string('role')->default('user');
+            //$table->string('role')->default('user');
             $table->string('notes')->nullable();
 
             $table->rememberToken();

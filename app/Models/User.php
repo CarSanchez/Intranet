@@ -7,17 +7,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    //
-    Use Notifiable;
-
-    protected $guard = 'web';
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
+        'role_id',
         'name',
         'lastName',
         'date',
@@ -27,9 +23,13 @@ class User extends Authenticatable
         'user',
         'password',
         'active',
-        'role',
         'notes',
     ];
+    //
+
+    Use Notifiable;
+
+    protected $guard = 'web';
 
     /**
      * The attributes that should be hidden for arrays.
@@ -37,10 +37,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
+        'role_id',
         'route_img',
         'password',
         'active',
-        'role',
     ];
 
     /**
@@ -61,4 +61,13 @@ class User extends Authenticatable
         'active' => 'int',
         'created_at' => 'datetime:Y-m-d',
     ];
+
+    //Relationships
+    /**
+     * Has one role
+    */
+    public function role()
+    {
+        $this->hasOne(Role::class);
+    }
 }
