@@ -59,8 +59,8 @@ Route::prefix('dashboard')->group(function() {
                 Route::put('/', 'UserController@updateImage')->name('changeImage.update');
             });
 
-            Route::prefix('updateImage')->group(function () {
-
+            Route::prefix('update')->group(function () {
+                Route::put('/', 'UserController@update')->name('dates.update');
             });
         });
     });

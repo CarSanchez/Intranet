@@ -184,6 +184,23 @@ class UserController extends Controller
     public function update(UpdateUserRequest $updateUserRequest)
     {
         $validates = $updateUserRequest->validated();
+
+        $user = $this->user->findOrFail(Auth::user()->id);
+
+        $attributes = [
+            'name' => $validates['name'],
+            'lastName' => $validates['lastName'],
+            'date' => $validates['date'],
+            'email' => $validates['email'],
+            'ext' => $validates['ext'],
+            'user' => $validates['user'],
+            'role' => Auth::user()->role,
+            //'role' => $validates['role'],
+        ];
+
+        $user->update($attributes);
+
+        return redirect()->route('profile.index')->with('flash_info', 'Cambio de datos exitoso.');
     }
 
     /**

@@ -24,11 +24,18 @@
         <div class="row">
             <div class="col-md-12 order-md-1">
                 @if($errors->any())
-                    <div class="alert alert-danger">
-                        @foreach($errors->all() as $error)
-                            {{ $error }}
-                        @endforeach
-                    </div>
+                    @foreach($errors->all() as $error)
+                        <div class="alert alert-danger">
+                            <ul>
+                                <li>
+                                    {{ $error }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    @endforeach
                 @endif
 
                 @if (session()->has('flash_info'))
@@ -49,7 +56,7 @@
 
                     <!-- Datos personales -->
                     <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                        <form method="POST" action="#" class="needs-validation form-signin" novalidate>
+                        <form method="POST" action="{{ route('dates.update') }}" class="needs-validation form-signin" novalidate>
                             {{ method_field('PUT') }}
                             {{ csrf_field() }}
 
@@ -58,8 +65,8 @@
                                     <h1>Personales</h1>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                        <label for="nombre">Nombre</label>
+                                    <div class="col-sm-4 mt-2 col-md-4 col-lg-4 ">
+                                        <label for="nombre">Nombre(s)</label>
                                         <input type="text"
                                                class="form-control"
                                                id="name"
@@ -74,7 +81,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-4 col-md-4 col-lg-4">
+                                    <div class="col-sm-4 mt-2 col-md-4 col-lg-4">
                                         <label for="lastName">Apellidos</label>
                                         <input type="text"
                                                class="form-control"
@@ -90,7 +97,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-4 col-md-4 col-lg-4">
+                                    <div class="col-sm-4 mt-2 col-md-4 col-lg-4">
                                         <label for="date">Fecha de nacimiento</label>
                                         <input type="date"
                                                class="form-control"
@@ -110,8 +117,8 @@
                                 <div class="row mt-4">
                                     <h1>Laborales</h1>
                                 </div>
-                                <div class="row mt-3">
-                                    <div class="col-sm-4 col-md-4 col-lg-4">
+                                <div class="row">
+                                    <div class="col-sm-4 mt-2 col-md-4 col-lg-4">
                                         <label for="email">Email</label>
                                         <input type="email"
                                                class="form-control"
@@ -126,7 +133,22 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-4 col-md-4 col-lg-4">
+                                    <div class="col-sm-4 mt-2 col-md-4 col-lg-4">
+                                        <label for="ext">Extención</label>
+                                        <input type="text"
+                                               class="form-control"
+                                               id="ext"
+                                               placeholder="Extención"
+                                               name="ext"
+                                               value="{{ auth()->user()->ext }}"
+                                               required
+                                               disabled>
+                                        <div class="invalid-feedback">
+                                            La extención es requerida.
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-4 mt-2 col-md-4 col-lg-4">
                                         <label for="user">Usuario</label>
                                         <input type="text"
                                                class="form-control"
@@ -141,7 +163,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-4 col-md-4 col-lg-4">
+                                    <div class="col-sm-4 mt-2 col-md-4 col-lg-4">
                                         <label for="role">Nivel de perfil</label>
                                         <input type="text"
                                                class="form-control"
@@ -162,7 +184,7 @@
                                         <textarea class="form-control" id="formControlTextarea" rows="3" name="notes" disabled value="{{ auth()->user()->notes }}"></textarea>
                                     </div>
                                 </div>
-                            </>
+                            <div/>
 
                             @if(auth()->user()->role == 'sa')
                                 <div class="row d-flex justify-content-center mt-5">

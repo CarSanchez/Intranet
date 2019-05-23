@@ -65,16 +65,6 @@
     </div>
 </nav>
 
-@if($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
 @if (session()->has('flash'))
     <div class="alert alert-danger text-center">
         {{ session('flash') }}
@@ -92,6 +82,36 @@
     </div>
 @endif
 
+@if($errors->any())
+    <div class="alert alert-danger text-center">
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>
+                    {{ $error }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+@if($errors->any())
+    @foreach($errors->all() as $error)
+        <div class="alert alert-danger text-center">
+            <ul>
+                <li>
+                    {{ $error }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    @endforeach
+@endif
+
 @if (session()->has('flash'))
     <div class="alert alert-danger text-center">
         {{ session('flash') }}
@@ -104,10 +124,10 @@
 @if (session()->has('flash_info'))
     <div class="alert alert-info text-center">
         {{ session('flash_info') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
 @endif--}}
 -->
 @if(Route::is('admin'))
@@ -115,14 +135,15 @@
         <!-- Sidebar -->
         <div class="bg-light border-right" id="sidebar-wrapper">
             <div class="sidebar-heading">Panel de control</div>
-            <div class="list-group list-group-flush">
-                <a href="{{ route('admin') }}" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+            <nav class="list-group list-group-flush nav nav-pills nav-fill" id="nav-tab" role="tablist">
+                <a class="list-group-item list-group-item-action nav-item nav-link" id="nav-users-tab" data-toggle="tab" href="#nav-users" role="tab" aria-controls="nav-users" aria-selected="true">Usuarios</a>
+                <a class="list-group-item list-group-item-action nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Datos Personales</a>
                 <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
                 <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
                 <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
                 <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
                 <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
-            </div>
+            </nav>
         </div>
         <!-- /#sidebar-wrapper -->
 

@@ -13,7 +13,9 @@ $("#menu-toggle").click(function(e) {
 });
 
 
-/* Functions of update button of view profile view profile */
+/**
+ * Functions of update button of view profile view profile
+ *
 /** Attributes of buttons*/
 var btn_1 = document.getElementById('ed');
 var btn_2 = document.getElementById('up');
@@ -43,6 +45,7 @@ function mostrarActualizar() {
     document.getElementById("lastName").removeAttribute("disabled");
     document.getElementById("date").removeAttribute("disabled");
     document.getElementById("email").removeAttribute("disabled");
+    document.getElementById("ext").removeAttribute("disabled");
     document.getElementById("user").removeAttribute("disabled");
     document.getElementById("formControlTextarea").removeAttribute("disabled");
 }
@@ -59,6 +62,7 @@ function ocultarActualizar() {
     document.getElementById("lastName").setAttribute("disabled", "");
     document.getElementById("date").setAttribute("disabled", "");
     document.getElementById("email").setAttribute("disabled", "");
+    document.getElementById("ext").setAttribute("disabled", "");
     document.getElementById("user").setAttribute("disabled", "");
     document.getElementById("formControlTextarea").setAttribute("disabled", "");
 }
