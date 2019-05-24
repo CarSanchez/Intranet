@@ -23,6 +23,7 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
         'email' => $faker->unique()->safeEmail,
         'ext' => $faker->randomNumber(4),
         'user' => $faker->unique()->userName,
+        'department_id' => 2,
         'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
         'active' => '1',
         'role_id' => 2,

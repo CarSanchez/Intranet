@@ -64,10 +64,18 @@ class User extends Authenticatable
 
     //Relationships
     /**
-     * Has one role
+     * A user has a role or belongs to a role, Has Many(Inverse)
     */
-    public function role()
+    public function role() //<- role + _id == role_id
     {
-        $this->hasOne(Role::class);
+        return $this->belongsTo(Role::class);
+    }
+
+    /**
+     * Belongs to department, Has Many(Inverse)
+    */
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
     }
 }

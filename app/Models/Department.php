@@ -4,22 +4,22 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class Department extends Model
 {
     protected $fillable = [
-        'role',
+        'name',
         'desc',
     ];
 
-    protected $hidden = [
-        'role',
+    /*protected $hidden = [
+        'name',
         'desc',
-    ];
+    ];*/
 
     //Relationships
     /**
-     * A role has many users or belongs to many users, (Has Many)
-    */
+     * A department has many users, (Has Many)
+     */
     public function users()
     {
         return $this->hasMany(User::class);
