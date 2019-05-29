@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use Illuminate\Http\Request;
 
 class UserSeeder extends Seeder
 {
@@ -10,7 +11,7 @@ class UserSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Request $request)
     {
         User::create([
             'name' => 'sa',
@@ -26,6 +27,7 @@ class UserSeeder extends Seeder
             'role_id' => 1,
             'notes' => 'This user is the super administrator with all permissions',
             /*'remember_token' => Str::random(10),*/
+            'ip_register' => $request->ip(),
         ]);
 
         User::create([
@@ -42,6 +44,7 @@ class UserSeeder extends Seeder
             'role_id' => 1,
             'notes' => 'This user is the admin with permissions of sa',
             /*'remember_token' => Str::random(10),*/
+            'ip_register' => $request->ip(),
         ]);
 
         User::create([
@@ -58,6 +61,7 @@ class UserSeeder extends Seeder
             'role_id' => 1,
             'notes' => 'This user is the admin with permissions of sa',
             /*'remember_token' => Str::random(10),*/
+            'ip_register' => $request->ip(),
         ]);
 
         User::create([
@@ -74,6 +78,7 @@ class UserSeeder extends Seeder
             'role_id' => 1,
             'notes' => 'This user is the admin with permissions of sa',
             /*'remember_token' => Str::random(10),*/
+            'ip_register' => $request->ip(),
         ]);
 
         User::create([
@@ -90,6 +95,7 @@ class UserSeeder extends Seeder
             'role_id' => 1,
             'notes' => 'This user is the admin with permissions of sa',
             /*'remember_token' => Str::random(10),*/
+            'ip_register' => $request->ip(),
         ]);
 
         factory(User::class)->times(1)->create([

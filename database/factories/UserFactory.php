@@ -28,6 +28,7 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
         'active' => '1',
         'role_id' => 2,
         'notes' => 'This user is the a admin user with position direction',
+        'ip_register' => $faker->ipv4,
         'remember_token' => Str::random(10),
     ];
 });

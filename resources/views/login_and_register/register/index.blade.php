@@ -94,6 +94,16 @@
                required
                autocomplete="of">
 
+        <label for="inputUser">Departamento*</label>
+        <select class="form-control mb-3" id="department" name="department" required>
+            <option>Selecciona departamento</option>
+            @forelse($departments as $department)
+                <option value="{{ $department->id }}">{{ $department->name }}</option>
+            @empty
+                <option>No hay resultados</option>
+            @endforelse
+        </select>
+
         <label for="inputPassword">Contraseña*</label>
         <input type="password"
                class="form-control mb-3 {{ $errors->has('password') ? 'is-invalid' : '' }}"

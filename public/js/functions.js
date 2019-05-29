@@ -47,6 +47,7 @@ function mostrarActualizar() {
     document.getElementById("email").removeAttribute("disabled");
     document.getElementById("ext").removeAttribute("disabled");
     document.getElementById("user").removeAttribute("disabled");
+    document.getElementById("department").removeAttribute("disabled");
     document.getElementById("formControlTextarea").removeAttribute("disabled");
 }
 
@@ -58,12 +59,13 @@ function ocultarActualizar() {
     btn_4.style.display = 'none';
 
     /* Campos */
-    document.getElementById("name").setAttribute("disabled", "")
+    document.getElementById("name").setAttribute("disabled", "");
     document.getElementById("lastName").setAttribute("disabled", "");
     document.getElementById("date").setAttribute("disabled", "");
     document.getElementById("email").setAttribute("disabled", "");
     document.getElementById("ext").setAttribute("disabled", "");
     document.getElementById("user").setAttribute("disabled", "");
+    document.getElementById("department").setAttribute("disabled", "");
     document.getElementById("formControlTextarea").setAttribute("disabled", "");
 }
 /* End functions of buttons of profile */

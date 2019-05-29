@@ -56,7 +56,7 @@
 
                     <!-- Datos personales -->
                     <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                        <form method="POST" action="{{ route('dates.update') }}" class="needs-validation form-signin" novalidate>
+                        <form method="POST" action="{{ route('dates.update') }}" class="needs-validation form-signin">
                             {{ method_field('PUT') }}
                             {{ csrf_field() }}
 
@@ -64,7 +64,7 @@
                                 <div class="row">
                                     <h1>Personales</h1>
                                 </div>
-                                <div class="row">
+                                <div class="form-row">
                                     <div class="col-sm-4 mt-2 col-md-4 col-lg-4 ">
                                         <label for="nombre">Nombre(s)</label>
                                         <input type="text"
@@ -76,9 +76,6 @@
                                                required
                                                autocomplete="of"
                                                disabled>
-                                        <div class="invalid-feedback">
-                                            El nombre es requerido.
-                                        </div>
                                     </div>
 
                                     <div class="col-sm-4 mt-2 col-md-4 col-lg-4">
@@ -92,9 +89,6 @@
                                                required
                                                autocomplete="of"
                                                disabled>
-                                        <div class="invalid-feedback">
-                                            Los apellidos son requeridos.
-                                        </div>
                                     </div>
 
                                     <div class="col-sm-4 mt-2 col-md-4 col-lg-4">
@@ -108,16 +102,13 @@
                                                required
                                                autocomplete="of"
                                                disabled>
-                                        <div class="invalid-feedback">
-                                            La fecha es requerida.
-                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="row mt-4">
                                     <h1>Laborales</h1>
                                 </div>
-                                <div class="row">
+                                <div class="form-row">
                                     <div class="col-sm-4 mt-2 col-md-4 col-lg-4">
                                         <label for="email">Email</label>
                                         <input type="email"
@@ -128,9 +119,6 @@
                                                value="{{ auth()->user()->email }}"
                                                required
                                                disabled>
-                                        <div class="invalid-feedback">
-                                            El Email es requerido.
-                                        </div>
                                     </div>
 
                                     <div class="col-sm-4 mt-2 col-md-4 col-lg-4">
@@ -143,9 +131,6 @@
                                                value="{{ auth()->user()->ext }}"
                                                required
                                                disabled>
-                                        <div class="invalid-feedback">
-                                            La extención es requerida.
-                                        </div>
                                     </div>
 
                                     <div class="col-sm-4 mt-2 col-md-4 col-lg-4">
@@ -158,53 +143,57 @@
                                                value="{{ auth()->user()->user }}"
                                                required
                                                disabled>
-                                        <div class="invalid-feedback">
-                                            El Usuario es requerido.
-                                        </div>
                                     </div>
 
                                     <div class="col-sm-4 mt-2 col-md-4 col-lg-4">
-                                        <label for="role">Nivel de perfil</label>
-                                        <input type="text"
-                                               class="form-control"
-                                               id="role"
-                                               placeholder="Usuario"
-                                               name="role"
-                                               value="{{ auth()->user()->role }}"
-                                               disabled>
-                                        <div class="invalid-feedback">
-                                            El Usuario es requerido.
-                                        </div>
+                                        <label for="Department">Departamento: <b>{{ auth()->user()->department->name }}</b></label>
+                                        <select class="form-control" id="department" name="department" required disabled>
+                                            @forelse($departments as $department)
+                                                <option value="{{ $department->id }}">{{ $department->name }}</option>
+                                            @empty
+                                                <option>No hay resultados</option>
+                                            @endforelse
+                                        </select>
+                                    </div>
+
+                                    <div class="col-sm-4 mt-2 col-md-4 col-lg-4">
+                                        <label for="Department">Nivel de perfil: <b>{{ auth()->user()->role->role }}</b></label>
+                                        <select class="form-control" id="role" name="role" required disabled>
+                                            @forelse($roles as $role)
+                                                <option value="{{ $role->id }}">{{ $role->role }}</option>
+                                            @empty
+                                                <option>No hay resultados</option>
+                                            @endforelse
+                                        </select>
                                     </div>
                                 </div>
 
-                                <div class="row mt-3">
+                                <div class="form-row mt-3">
                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                         <label for="exampleFormControlTextarea1">Notas del usuario</label>
                                         <textarea class="form-control" id="formControlTextarea" rows="3" name="notes" disabled value="{{ auth()->user()->notes }}"></textarea>
                                     </div>
                                 </div>
-                            <div/>
 
-                            @if(auth()->user()->role == 'sa')
-                                <div class="row d-flex justify-content-center mt-5">
+
+                            @if(auth()->user()->role->role == 'sa')
+                                <div class="form-row d-flex justify-content-center mt-5">
                                     <a class="btn btn-dark btn-lg col-md-4 mr-3 ml-3 mb-3" id="re" style="display: inline" href="{{ route('admin') }}" >Regresar</a>
                                     <a class="btn btn-dark btn-lg col-md-4 mr-3 ml-3 mb-3" id="ca" style="display: none; color: white;" onclick="ocultarActualizarsa()">Cancelar</a>
                                     <a class="btn btn-primary btn-lg col-md-4 mr-3 ml-3 mb-3" id="ed" style="display: inline; color: white;" onclick="mostrarActualizarsa()">Editar</a>
                                     <button class="btn btn-primary btn-lg col-md-4 mr-3 ml-3 mb-3" id="up" style="display: none">Actualizar</button>
                                 </div>
                             @else
-                                <div class="row d-flex justify-content-center mt-5">
+                                <div class="form-row d-flex justify-content-center mt-5">
                                     <a class="btn btn-dark btn-lg col-md-4 mr-3 ml-3 mb-3" id="re" style="display: inline" href="{{ route('admin') }}" >Regresar</a>
                                     <a class="btn btn-dark btn-lg col-md-4 mr-3 ml-3 mb-3" id="ca" style="display: none; color: white;" onclick="ocultarActualizar()">Cancelar</a>
                                     <a class="btn btn-primary btn-lg col-md-4 mr-3 ml-3 mb-3" id="ed" style="display: inline; color: white;" onclick="mostrarActualizar()">Editar</a>
                                     <button class="btn btn-primary btn-lg col-md-4 mr-3 ml-3 mb-3" id="up" style="display: none">Actualizar</button>
                                 </div>
                             @endif
-
+                            </div>
                         </form>
                     </div>
-
                 </div>
             </div>
         </div>

@@ -32,6 +32,7 @@ class UpdateUserRequest extends FormRequest
             'email' => ['bail', 'required', 'max:100', Rule::unique('users', 'email')->ignore(Auth::user()->id)],
             'ext' => ['bail', 'required', 'min:4', Rule::unique('users', 'ext')->ignore(Auth::user()->id)],
             $this->username() => ['bail', 'required', 'min:2', 'max:20', Rule::unique('users', 'user')->ignore(Auth::user()->id)],
+            'department' => ['bail', 'required'],
             'role' => ['bail',  Auth::user()->role == 'sa' ? 'required' : ''],
         ];
     }
@@ -59,6 +60,7 @@ class UpdateUserRequest extends FormRequest
             $this->username().'.min' => 'El usuario minimo debe ser de 2 caracteres.',
             $this->username().'.max' => 'El usuario debe ser maximo de 20 caracteres.',
             $this->username().'.unique' => 'Este usuario ya existe, intente con otro.',
+            'department.required' => 'El departamento es requerido.',
             'role.required' => 'El nivel del perfil es requerido.',
         ];
     }

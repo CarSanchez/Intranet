@@ -32,6 +32,7 @@ class RegisterRequest extends FormRequest
             'email' => ['bail', 'required', 'max:100', Rule::unique('users', 'email')],
             'ext' => ['bail', 'required', 'min:4', Rule::unique('users', 'ext')],
             $this->username() => ['bail', 'required', 'min:2', 'max:20', Rule::unique('users', 'user')],
+            'department' => ['bail', 'required'],
             'password' => ['bail', 'required', 'min:6'],
         ];
     }
@@ -59,6 +60,7 @@ class RegisterRequest extends FormRequest
             $this->username().'min' => 'El usuario minimo debe ser de 2 caracteres.',
             $this->username().'max' => 'El usuario debe ser maximo de 20 caracteres.',
             $this->username().'unique' => 'Este usuario ya existe, intente con otro o inicie sesión.',
+            'department.required' => 'El departamento es requerido.',
             'password.required' => 'El password es requerido.',
             'password.min' => 'El password debe ser minimo de 6 caracteres.'
         ];

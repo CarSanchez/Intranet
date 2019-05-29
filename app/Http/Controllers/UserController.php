@@ -8,6 +8,8 @@ use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\UpdateImageRequest;
 use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Department;
+use App\Models\Role;
 
 class UserController extends Controller
 {
@@ -16,16 +18,20 @@ class UserController extends Controller
     */
     protected $request;
     protected $user;
+    protected $department;
+    protected $role;
 
     /**
      * Method construct
     */
-    public function __construct(Request $request, User $user)
+    public function __construct(Request $request, User $user, Department $department, Role $role)
     {
         /*$this->middleware('auth');*/ /* <- aplica el middleware para todo el controlador */
 
         $this->request = $request;
         $this->user = $user;
+        $this->department = $department;
+        $this->role = $role;
     }
 
     /**
@@ -35,7 +41,9 @@ class UserController extends Controller
      */
     public function registerIndex()
     {
-        return view('login_and_register.register.index');
+        $departments = $this->department::all();
+
+        return view('login_and_register.register.index', compact('departments'));
     }
 
     /**
@@ -45,7 +53,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('consumers.profile.index');
+        $departments = $this->department::all();
+        $roles = $this->role::all();
+
+        return view('consumers.profile.index', compact('departments', 'roles'));
     }
 
     /**
@@ -142,7 +153,10 @@ class UserController extends Controller
             'email' => $validates['email'],
             'ext' => $validates['ext'],
             'user' => $validates['user'],
+            'department_id' => $validates['department'],
             'password' => bcrypt($validates['password']),
+            'role_id' => 3,
+            'ip_register' => $this->request->ip(),
         ];
 
         $this->user->create($attributes);
@@ -194,7 +208,8 @@ class UserController extends Controller
             'email' => $validates['email'],
             'ext' => $validates['ext'],
             'user' => $validates['user'],
-            'role' => Auth::user()->role,
+            'department_id' => $validates['department'],
+            'role_id' => $validates['role'],
             //'role' => $validates['role'],
         ];
 
