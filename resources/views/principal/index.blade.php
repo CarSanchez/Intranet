@@ -92,7 +92,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <embed src="{{ asset('documents/directorio.pdf') }}" frameborder="0" width="100%" height="400px">
+                    <!--<embed src="{{ asset('documents/directorio.pdf') }}" frameborder="0" width="100%" height="400px">-->
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
@@ -168,10 +168,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12 text-center about">
-                    <h2>¿Quienes somos?</h2>
+                    <h2>¿Quiénes somos?</h2>
                     <div class="container">
                         <p>En 1959 inicia la empresa "Pinturas Alfa Gama", en la cual se obtiene un enorme éxito por su cobertura en el país, lleva a la empresa a ser una de las fabricas más importante en la industria de las pinturas.
-                            Al inicio de los años 80´s, traslado su residencia a la Ciudad de Puebla, en donde funda la empresa "Pinturas y lacas de Puebla" ubicada en la Av. 12 Pte. y 5 Norte.	En 1971, su tenacidad y gran visión de empresario lo lleva a fundar otro eslabón mas de su cadena de éxitos "Pinturas Mexicanas de Puebla" Pintumex, ubicada en la 15 Pte. y 23 Sur, en poco tiempo el crecimiento le hace cambiar sus instalaciones al Parque Industrial 5 de mayo; lugar en donde actualmente continua su gran carrera de crecimiento
+                            Al inicio de los años 80´s, traslado su residencia a la Ciudad de Puebla, en donde funda la empresa "Pinturas y lacas de Puebla" ubicada en la Av. 12 Pte. y 5 Norte.	En 1971, su tenacidad y gran visión de empresario lo lleva a fundar otro eslabón más de su cadena de éxitos "Pinturas Mexicanas de Puebla" Pintumex, ubicada en la 15 Pte. y 23 Sur, en poco tiempo el crecimiento le hace cambiar sus instalaciones al Parque Industrial 5 de mayo; lugar en donde actualmente continua su gran carrera de crecimiento
                             En septiembre de 1983, Ingresa al Club Rotario, logrando la amistad de la sociedad poblana, por su gran visión empresarial y por su particular gusto por la poesía.
                             En noviembre de 2004 fallece dejándonos un legado de conocimientos y éxito.</p>
                     </div>
@@ -181,7 +181,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12 text-center portafolio">
-                    <h2>¿De que color sueñas?</h2>
+                    <h2>¿De qué color sueñas?</h2>
                 </div>
             </div>
             <div class="row">
