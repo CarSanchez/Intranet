@@ -63,8 +63,8 @@
                    id="customFileLang"
                    lang="es"
                    name="route_img"
-                   value="{{ old('route_img') }}"
-                   autocomplete="of">
+                   autocomplete="of"
+                   required>
         </div>
 
         <label for="inputEmail">Correo*</label>
@@ -96,9 +96,9 @@
 
         <label for="inputUser">Departamento*</label>
         <select class="form-control mb-3" id="department" name="department" required>
-            <option>Selecciona departamento</option>
+            <option value="">Selecciona departamento</option>
             @forelse($departments as $department)
-                <option value="{{ $department->id }}">{{ $department->name }}</option>
+                <option value="{{ $department->id }}" {{ (old("department") == $department->id ? "selected":"") }}>{{ $department->name }}</option>
             @empty
                 <option>No hay resultados</option>
             @endforelse
