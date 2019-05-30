@@ -156,16 +156,18 @@
                                         </select>
                                     </div>
 
-                                    <div class="col-sm-4 mt-2 col-md-4 col-lg-4">
-                                        <label for="Department">Nivel de perfil: <b>{{ auth()->user()->role->role }}</b></label>
-                                        <select class="form-control" id="role" name="role" required disabled>
-                                            @forelse($roles as $role)
-                                                <option value="{{ $role->id }}">{{ $role->role }}</option>
-                                            @empty
-                                                <option>No hay resultados</option>
-                                            @endforelse
-                                        </select>
-                                    </div>
+                                    @if(auth()->user()->role->role == 'sa')
+                                        <div class="col-sm-4 mt-2 col-md-4 col-lg-4">
+                                            <label for="Department">Nivel de perfil: <b>{{ auth()->user()->role->role }}</b></label>
+                                            <select class="form-control" id="role" name="role" required disabled>
+                                                @forelse($roles as $role)
+                                                    <option value="{{ $role->id }}">{{ $role->role }}</option>
+                                                @empty
+                                                    <option>No hay resultados</option>
+                                                @endforelse
+                                            </select>
+                                        </div>
+                                    @endif
                                 </div>
 
                                 <div class="form-row mt-3">

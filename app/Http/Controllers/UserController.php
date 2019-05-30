@@ -209,7 +209,7 @@ class UserController extends Controller
             'ext' => $validates['ext'],
             'user' => $validates['user'],
             'department_id' => $validates['department'],
-            'role_id' => $validates['role'],
+            'role_id' => Auth::user()->role->role == 'sa' ? $validates['role'] : Auth::user()->role->id,
             //'role' => $validates['role'],
         ];
 

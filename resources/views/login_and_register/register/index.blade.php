@@ -98,7 +98,7 @@
         <select class="form-control mb-3" id="department" name="department" required>
             <option value="">Selecciona departamento</option>
             @forelse($departments as $department)
-                <option value="{{ $department->id }}" {{ (old("department") == $department->id ? "selected":"") }}>{{ $department->name }}</option>
+                <option value="{{ $department->id }}" {{ (old("department") == $department->id ? "selected" : "") }}>{{ $department->name }}</option>
             @empty
                 <option>No hay resultados</option>
             @endforelse
