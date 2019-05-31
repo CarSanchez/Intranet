@@ -180,6 +180,19 @@
             </div>
         </div>
         <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col">
+                    <img src="{{ asset('img/who_we_are/1.jpg') }}" alt="" width="350" height="400" style="border-radius: 2rem;">
+                </div>
+                <div class="col">
+                    <img src="{{ asset('img/who_we_are/2.jpg ') }}" alt="" width="350" height="380" style="background: rgb(202, 202, 202) no-repeat bottom left; padding: 0px 0px 10px 10px; border-radius: 2rem;">
+                </div>
+                <div class="col">
+                    <img src="{{ asset('img/who_we_are/3.jpg ') }}" alt="" width="350" height="380" style="background: rgb(202, 202, 202) no-repeat bottom left; padding: 0px 0px 10px 10px; border-radius: 2rem;">
+                </div>
+            </div>
+        </div>
+        <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12 text-center portafolio">
                     <h2>¿De qué color sueñas?</h2>
@@ -244,19 +257,49 @@
                         <img src="{{ asset('img/social/f1.jpg') }}" alt="Image" class="img-responsive">
                     </a>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 mb-5 imagen">
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
                     <a class="example-image-link" href="{{ asset('img/social/f2.jpg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
                         <img src="{{ asset('img/social/f2.jpg') }}" alt="Image" class="img-responsive">
                     </a>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 mb-5 imagen">
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
                     <a class="example-image-link" href="{{ asset('img/social/f3.jpg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
                         <img src="{{ asset('img/social/f3.jpg') }}" alt="Image" class="img-responsive">
                     </a>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 mb-5 imagen">
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
                     <a class="example-image-link" href="{{ asset('img/social/7.jpg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
                         <img src="{{ asset('img/social/7.jpg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_pintu.jpg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
+                        <img src="{{ asset('img/social/dia_pintu.jpg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_pintu2.jpg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
+                        <img src="{{ asset('img/social/dia_pintu2.jpg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_pintu3.jpeg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
+                        <img src="{{ asset('img/social/dia_pintu3.jpeg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 mb-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_pintu4.jpg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
+                        <img src="{{ asset('img/social/dia_pintu4.jpg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 mb-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_mama.jpeg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
+                        <img src="{{ asset('img/social/dia_mama.jpeg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 mb-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_mama2.jpeg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
+                        <img src="{{ asset('img/social/dia_mama2.jpeg') }}" alt="Image" class="img-responsive">
                     </a>
                 </div>
             </div>
