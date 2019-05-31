@@ -212,9 +212,9 @@
 
                                 @if(auth()->user()->role->role != 'sa')
                                     <div>
-                                        <div class="row text-center mt-5">
+                                        <div class="row  mt-5">
                                             <div class="col" style="color:red;">
-                                                <h5>Nota: Si alguno de los datos laborales favor de contactar al departamento de sistemas dándole a conocer los cambios a realizar.</h5>
+                                                <h5>Nota: Si alguno de los datos laborales no es correcto favor de contactar al departamento de sistemas dándole a conocer los cambios a realizar.</h5>
                                             </div>
                                         </div>
                                     </div>

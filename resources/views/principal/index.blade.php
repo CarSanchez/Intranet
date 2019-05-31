@@ -41,12 +41,12 @@
                             @endif
                         </li>
                     @else
-                        <li class="nav-item">
+                        {{--<li class="nav-item">
                             <a class="nav-link" href='{{ route('auth.index') }}'>login /</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('register.index') }}">Registro</a>
-                        </li>
+                        </li>--}}
                     @endauth
                 </ul>
                 <div class="d-flex flex-row justify-content-center">
@@ -160,6 +160,7 @@
             <img class="carousel-image" src="{{ asset('img/slides/3.jpg') }}" />
             <img class="carousel-image" src="{{ asset('img/slides/5.jpg') }}" />
             <img class="carousel-image" src="{{ asset('img/slides/6.jpg') }}" />
+            <img class="carousel-image" src="{{ asset('img/slides/uniformes.png') }}" />
         </div>
     </section>
 @endsection
@@ -248,11 +249,41 @@
                     </a>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-4 imagen">
-                    <a class="example-image-link" href="{{ asset('img/social/5.jpg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
+                    <a class="example-image-link" href="{{ asset('img/social/5.jpg') }}" data-lightbox="example-set" data-title="Cena de Fin de Año">
                         <img src="{{ asset('img/social/5.jpg') }}" alt="Image" class="img-responsive">
                     </a>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-4 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_niño.jpeg') }}" data-lightbox="example-set" data-title="Día del Niño">
+                        <img src="{{ asset('img/social/dia_niño.jpeg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_niño2.jpeg') }}" data-lightbox="example-set" data-title="Día del Niño">
+                        <img src="{{ asset('img/social/dia_niño2.jpeg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_niño3.jpeg') }}" data-lightbox="example-set" data-title="Día del Niño">
+                        <img src="{{ asset('img/social/dia_niño3.jpeg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_niño4.jpeg') }}" data-lightbox="example-set" data-title="Día del Niño">
+                        <img src="{{ asset('img/social/dia_niño4.jpeg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_niño5.jpeg') }}" data-lightbox="example-set" data-title="Día del Niño">
+                        <img src="{{ asset('img/social/dia_niño5.jpeg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_niño6.jpeg') }}" data-lightbox="example-set" data-title="Día del Niño">
+                        <img src="{{ asset('img/social/dia_niño6.jpeg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
                     <a class="example-image-link" href="{{ asset('img/social/f1.jpg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
                         <img src="{{ asset('img/social/f1.jpg') }}" alt="Image" class="img-responsive">
                     </a>
@@ -273,33 +304,133 @@
                     </a>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
-                    <a class="example-image-link" href="{{ asset('img/social/dia_pintu.jpg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_negocio.jpg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
+                        <img src="{{ asset('img/social/dia_negocio.jpg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_negocio2.jpg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
+                        <img src="{{ asset('img/social/dia_negocio2.jpg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_reyes.jpeg') }}" data-lightbox="example-set" data-title="Día de Reyes">
+                        <img src="{{ asset('img/social/dia_reyes.jpeg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_reyes2.jpeg') }}" data-lightbox="example-set" data-title="Día de Reyes">
+                        <img src="{{ asset('img/social/dia_reyes2.jpeg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_reyes3.jpeg') }}" data-lightbox="example-set" data-title="Día de Reyes">
+                        <img src="{{ asset('img/social/dia_reyes3.jpeg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_reyes4.jpeg') }}" data-lightbox="example-set" data-title="Día de Reyes">
+                        <img src="{{ asset('img/social/dia_reyes4.jpeg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_reyes5.jpeg') }}" data-lightbox="example-set" data-title="Día de Reyes">
+                        <img src="{{ asset('img/social/dia_reyes5.jpeg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_reyes6.jpeg') }}" data-lightbox="example-set" data-title="Día de Reyes">
+                        <img src="{{ asset('img/social/dia_reyes6.jpeg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_semi.jpg') }}" data-lightbox="example-set" data-title="Seminario Administrativo Operativo">
+                        <img src="{{ asset('img/social/dia_semi.jpg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_semi2.jpg') }}" data-lightbox="example-set" data-title="Seminario Administrativo Operativo">
+                        <img src="{{ asset('img/social/dia_semi2.jpg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_semi3.jpg') }}" data-lightbox="example-set" data-title="Seminario Administrativo Operativo">
+                        <img src="{{ asset('img/social/dia_semi3.jpg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_semi4.jpg') }}" data-lightbox="example-set" data-title="Seminario Administrativo Operativo">
+                        <img src="{{ asset('img/social/dia_semi4.jpg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_semi5.jpg') }}" data-lightbox="example-set" data-title="Seminario Administrativo Operativo">
+                        <img src="{{ asset('img/social/dia_semi5.jpg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_semi6.jpg') }}" data-lightbox="example-set" data-title="Seminario Administrativo Operativo">
+                        <img src="{{ asset('img/social/dia_semi6.jpg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_pintu.jpg') }}" data-lightbox="example-set" data-title="Día Pintumex">
                         <img src="{{ asset('img/social/dia_pintu.jpg') }}" alt="Image" class="img-responsive">
                     </a>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
-                    <a class="example-image-link" href="{{ asset('img/social/dia_pintu2.jpg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_pintu2.jpg') }}" data-lightbox="example-set" data-title="Día Pintumex">
                         <img src="{{ asset('img/social/dia_pintu2.jpg') }}" alt="Image" class="img-responsive">
                     </a>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
-                    <a class="example-image-link" href="{{ asset('img/social/dia_pintu3.jpeg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_pintu3.jpeg') }}" data-lightbox="example-set" data-title="Día Pintumex">
                         <img src="{{ asset('img/social/dia_pintu3.jpeg') }}" alt="Image" class="img-responsive">
                     </a>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 mb-5 imagen">
-                    <a class="example-image-link" href="{{ asset('img/social/dia_pintu4.jpg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_pintu4.jpg') }}" data-lightbox="example-set" data-title="Día Pintumex">
                         <img src="{{ asset('img/social/dia_pintu4.jpg') }}" alt="Image" class="img-responsive">
                     </a>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 mb-5 imagen">
-                    <a class="example-image-link" href="{{ asset('img/social/dia_mama.jpeg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_pintu5.jpeg') }}" data-lightbox="example-set" data-title="Día Pintumex">
+                        <img src="{{ asset('img/social/dia_pintu5.jpeg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_pintu6.jpeg') }}" data-lightbox="example-set" data-title="Día Pintumex">
+                        <img src="{{ asset('img/social/dia_pintu6.jpeg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_mama.jpeg') }}" data-lightbox="example-set" data-title="Día de Las Madres">
                         <img src="{{ asset('img/social/dia_mama.jpeg') }}" alt="Image" class="img-responsive">
                     </a>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 mb-5 imagen">
-                    <a class="example-image-link" href="{{ asset('img/social/dia_mama2.jpeg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_mama2.jpeg') }}" data-lightbox="example-set" data-title="Día de Las Madres">
                         <img src="{{ asset('img/social/dia_mama2.jpeg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_mama3.jpeg') }}" data-lightbox="example-set" data-title="Día de Las Madres">
+                        <img src="{{ asset('img/social/dia_mama3.jpeg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_mama4.jpeg') }}" data-lightbox="example-set" data-title="Día de Las Madres">
+                        <img src="{{ asset('img/social/dia_mama4.jpeg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_mama5.jpeg') }}" data-lightbox="example-set" data-title="Día de Las Madres">
+                        <img src="{{ asset('img/social/dia_mama5.jpeg') }}" alt="Image" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5 imagen">
+                    <a class="example-image-link" href="{{ asset('img/social/dia_mama6.jpeg') }}" data-lightbox="example-set" data-title="Día de Las Madres">
+                        <img src="{{ asset('img/social/dia_mama6.jpeg') }}" alt="Image" class="img-responsive">
                     </a>
                 </div>
             </div>
@@ -310,7 +441,7 @@
 @section('foo-content')
     <section id="footer">
         <div class="container con">
-            <div class="row">
+            <div class="row mt-5">
                 <div class="col-sm-12 col-md-6 col-gl-6 mt-5 contact">
                     <p class="pull-left">
                         <small class="block">&copy; 2019</small>
