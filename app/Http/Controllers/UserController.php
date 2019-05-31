@@ -201,17 +201,34 @@ class UserController extends Controller
 
         $user = $this->user->findOrFail(Auth::user()->id);
 
-        $attributes = [
-            'name' => $validates['name'],
-            'lastName' => $validates['lastName'],
-            'date' => $validates['date'],
-            'email' => $validates['email'],
-            'ext' => $validates['ext'],
-            'user' => $validates['user'],
-            'department_id' => $validates['department'],
-            'role_id' => Auth::user()->role->role == 'sa' ? $validates['role'] : Auth::user()->role->id,
-            //'role' => $validates['role'],
-        ];
+        if (Auth::user()->role->role == 'sa')
+        {
+            $attributes = [
+                'name' => $validates['name'],
+                'lastName' => $validates['lastName'],
+                'date' => $validates['date'],
+                'email' => $validates['email'],
+                'ext' => $validates['ext'],
+                'user' => $validates['user'],
+                'department_id' => $validates['department'],
+                'role_id' => $validates['role'],
+                //'role' => $validates['role'],
+            ];
+        }
+        else
+        {
+            $attributes = [
+                'name' => $validates['name'],
+                'lastName' => $validates['lastName'],
+                'date' => $validates['date'],
+                /*'email' => Auth::user()->role->role == 'sa' ? $validates['email'] : Auth::user()->email,
+                'ext' => Auth::user()->role->role == 'sa' ? $validates['ext'] : Auth::user()->ext,
+                'user' => Auth::user()->role->role == 'sa' ? $validates['user'] : Auth::user()->user,
+                'department_id' => Auth::user()->role->role == 'sa' ? $validates['department'] : Auth::user()->department->id,
+                'role_id' => Auth::user()->role->role == 'sa' ? $validates['role'] : Auth::user()->role->role,*/
+                //'role' => $validates['role'],
+            ];
+        }
 
         $user->update($attributes);
 

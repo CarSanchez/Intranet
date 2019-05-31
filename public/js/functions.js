@@ -26,11 +26,21 @@ var btn_4 = document.getElementById('ca');
 function mostrarActualizarsa() {
     mostrarActualizar();
     document.getElementById("role").removeAttribute("disabled");
+    document.getElementById("email").removeAttribute("disabled");
+    document.getElementById("ext").removeAttribute("disabled");
+    document.getElementById("user").removeAttribute("disabled");
+    document.getElementById("department").removeAttribute("disabled");
+    document.getElementById("formControlTextarea").removeAttribute("disabled");
 }
 
 function ocultarActualizarsa() {
     ocultarActualizar();
     document.getElementById("role").setAttribute("disabled", "");
+    document.getElementById("email").setAttribute("disabled", "");
+    document.getElementById("ext").setAttribute("disabled", "");
+    document.getElementById("user").setAttribute("disabled", "");
+    document.getElementById("department").setAttribute("disabled", "");
+    document.getElementById("formControlTextarea").setAttribute("disabled", "");
 }
 
 function mostrarActualizar() {
@@ -42,13 +52,9 @@ function mostrarActualizar() {
 
     /* Campos */
     document.getElementById("name").removeAttribute("disabled");
+    document.getElementById("name").focus();
     document.getElementById("lastName").removeAttribute("disabled");
     document.getElementById("date").removeAttribute("disabled");
-    document.getElementById("email").removeAttribute("disabled");
-    document.getElementById("ext").removeAttribute("disabled");
-    document.getElementById("user").removeAttribute("disabled");
-    document.getElementById("department").removeAttribute("disabled");
-    document.getElementById("formControlTextarea").removeAttribute("disabled");
 }
 
 function ocultarActualizar() {
@@ -62,11 +68,6 @@ function ocultarActualizar() {
     document.getElementById("name").setAttribute("disabled", "");
     document.getElementById("lastName").setAttribute("disabled", "");
     document.getElementById("date").setAttribute("disabled", "");
-    document.getElementById("email").setAttribute("disabled", "");
-    document.getElementById("ext").setAttribute("disabled", "");
-    document.getElementById("user").setAttribute("disabled", "");
-    document.getElementById("department").setAttribute("disabled", "");
-    document.getElementById("formControlTextarea").setAttribute("disabled", "");
 }
 /* End functions of buttons of profile */
 

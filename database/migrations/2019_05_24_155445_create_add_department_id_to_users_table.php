@@ -14,7 +14,7 @@ class CreateAddDepartmentIdToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->unsignedInteger('department_id')->after('user');
+            $table->unsignedInteger('department_id')->after('user')->nullable();
             $table->foreign('department_id')->references('id')->on('departments');
         });
     }

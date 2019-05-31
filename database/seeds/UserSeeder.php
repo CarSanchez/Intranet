@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
             'user' => 'sa',
             'department_id' => 1,
             'password' => bcrypt('Intr@net19'),
-            'active' => '1',
+            'active' => true,
             'role_id' => 1,
             'notes' => 'This user is the super administrator with all permissions',
             /*'remember_token' => Str::random(10),*/
@@ -40,7 +40,7 @@ class UserSeeder extends Seeder
             'user' => 'program2',
             'department_id' => 1,
             'password' => bcrypt('kklaus'),
-            'active' => '1',
+            'active' => true,
             'role_id' => 1,
             'notes' => 'This user is the admin with permissions of sa',
             /*'remember_token' => Str::random(10),*/
@@ -57,7 +57,7 @@ class UserSeeder extends Seeder
             'user' => 'sistemas1',
             'department_id' => 1,
             'password' => bcrypt('Sistemas1'),
-            'active' => '1',
+            'active' => true,
             'role_id' => 1,
             'notes' => 'This user is the admin with permissions of sa',
             /*'remember_token' => Str::random(10),*/
@@ -74,7 +74,7 @@ class UserSeeder extends Seeder
             'user' => 'sistemas2',
             'department_id' => 1,
             'password' => bcrypt('Sistemas2'),
-            'active' => '1',
+            'active' => true,
             'role_id' => 1,
             'notes' => 'This user is the admin with permissions of sa',
             /*'remember_token' => Str::random(10),*/
@@ -91,8 +91,25 @@ class UserSeeder extends Seeder
             'user' => 'sistemas3',
             'department_id' => 1,
             'password' => bcrypt('p@ssword'),
-            'active' => '1',
+            'active' => true,
             'role_id' => 1,
+            'notes' => 'This user is the admin with permissions of sa',
+            /*'remember_token' => Str::random(10),*/
+            'ip_register' => $request->ip(),
+        ]);
+
+        User::create([
+            'name' => 'Invitado',
+            'lastName' => 'General',
+            'date' => date('Y-m-d H:i:s'),
+            'route_img' => '',
+            'email' => 'invitado@pintumex.com.mx',
+            'ext' => '0001',
+            'user' => 'Invitado',
+            'department_id' => 4,
+            'password' => bcrypt('Invit@do'),
+            'active' => true,
+            'role_id' => 4,
             'notes' => 'This user is the admin with permissions of sa',
             /*'remember_token' => Str::random(10),*/
             'ip_register' => $request->ip(),

@@ -21,5 +21,15 @@ class DepartmentSeeder extends Seeder
             'name' => 'Comunicación',
             'desc' => 'Departamento de comunicación y relaciones.'
         ]);
+
+        Department::create([
+            'name' => 'General',
+            'desc' => 'Departamento para usuarios generales.'
+        ]);
+
+        Department::create([
+            'name' => 'Invitado',
+            'desc' => 'Departamento solo para el invitado.'
+        ]);
     }
 }

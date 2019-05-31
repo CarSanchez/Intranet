@@ -91,8 +91,9 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body text-center">
                     <!--<embed src="{{ asset('documents/directorio.pdf') }}" frameborder="0" width="100%" height="400px">-->
+                    <h1>¡PROXIMAMENTE!</h1>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
@@ -234,8 +235,8 @@
                     </a>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-4 imagen">
-                    <a class="example-image-link" href="{{ asset('img/social/7.jpg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
-                        <img src="{{ asset('img/social/7.jpg') }}" alt="Image" class="img-responsive">
+                    <a class="example-image-link" href="{{ asset('img/social/5.jpg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
+                        <img src="{{ asset('img/social/5.jpg') }}" alt="Image" class="img-responsive">
                     </a>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-4 imagen">
@@ -254,8 +255,8 @@
                     </a>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-4 mt-5 mb-5 imagen">
-                    <a class="example-image-link" href="{{ asset('img/social/5.jpg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
-                        <img src="{{ asset('img/social/5.jpg') }}" alt="Image" class="img-responsive">
+                    <a class="example-image-link" href="{{ asset('img/social/7.jpg') }}" data-lightbox="example-set" data-title="Plan de Negocios">
+                        <img src="{{ asset('img/social/7.jpg') }}" alt="Image" class="img-responsive">
                     </a>
                 </div>
             </div>

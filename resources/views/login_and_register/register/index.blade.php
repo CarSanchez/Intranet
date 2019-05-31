@@ -94,7 +94,7 @@
                required
                autocomplete="of">
 
-        <label for="inputUser">Departamento*</label>
+        {{--<label for="inputUser">Departamento*</label>
         <select class="form-control mb-3" id="department" name="department" required>
             <option value="">Selecciona departamento</option>
             @forelse($departments as $department)
@@ -102,7 +102,7 @@
             @empty
                 <option>No hay resultados</option>
             @endforelse
-        </select>
+        </select>--}}
 
         <label for="inputPassword">Contraseña*</label>
         <input type="password"

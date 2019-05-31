@@ -122,7 +122,7 @@
                                     </div>
 
                                     <div class="col-sm-4 mt-2 col-md-4 col-lg-4">
-                                        <label for="ext">Extención</label>
+                                        <label for="ext">Extensión</label>
                                         <input type="text"
                                                class="form-control"
                                                id="ext"
@@ -145,23 +145,39 @@
                                                disabled>
                                     </div>
 
-                                    <div class="col-sm-4 mt-2 col-md-4 col-lg-4">
-                                        <label for="Department">Departamento: <b>{{ auth()->user()->department->name }}</b></label>
-                                        <select class="form-control" id="department" name="department" required disabled>
-                                            @forelse($departments as $department)
-                                                <option value="{{ $department->id }}">{{ $department->name }}</option>
-                                            @empty
-                                                <option>No hay resultados</option>
-                                            @endforelse
-                                        </select>
-                                    </div>
+                                    @if(auth()->user()->role->role == 'sa')
+                                        <div class="col-sm-4 mt-2 col-md-4 col-lg-4">
+                                            <label for="Department">Departamento{{--: <b>{{ auth()->user()->department->name }}</b>--}}</label>
+                                            <select class="form-control" id="department" name="department" required disabled>
+                                                @forelse($departments as $department)
+                                                    <option value="{{ $department->id }}"
+                                                        {{ (auth()->user()->department->id == $department->id ? "selected" : "") }}>{{ $department->name }}</option>
+                                                @empty
+                                                    <option>No hay resultados</option>
+                                                @endforelse
+                                            </select>
+                                        </div>
+                                    @else
+                                        <div class="col-sm-4 mt-2 col-md-4 col-lg-4">
+                                            <label for="department">Departamento</label>
+                                            <input type="text"
+                                                   class="form-control"
+                                                   id="department"
+                                                   placeholder="Departamento"
+                                                   name="department"
+                                                   value="{{ auth()->user()->department->name }}"
+                                                   required
+                                                   disabled>
+                                        </div>
+                                    @endif
 
                                     @if(auth()->user()->role->role == 'sa')
                                         <div class="col-sm-4 mt-2 col-md-4 col-lg-4">
-                                            <label for="Department">Nivel de perfil: <b>{{ auth()->user()->role->role }}</b></label>
+                                            <label for="Department">Nivel de perfil{{--: <b>{{ auth()->user()->role->role }}</b>--}}</label>
                                             <select class="form-control" id="role" name="role" required disabled>
                                                 @forelse($roles as $role)
-                                                    <option value="{{ $role->id }}">{{ $role->role }}</option>
+                                                    <option value="{{ $role->id }}"
+                                                            {{ (auth()->user()->role->id == $role->id ? "selected" : "") }}>{{ $role->role }}</option>
                                                 @empty
                                                     <option>No hay resultados</option>
                                                 @endforelse
@@ -193,6 +209,16 @@
                                     <button class="btn btn-primary btn-lg col-md-4 mr-3 ml-3 mb-3" id="up" style="display: none">Actualizar</button>
                                 </div>
                             @endif
+
+                                @if(auth()->user()->role->role != 'sa')
+                                    <div>
+                                        <div class="row text-center mt-5">
+                                            <div class="col" style="color:red;">
+                                                <h5>Nota: Si alguno de los datos laborales favor de contactar al departamento de sistemas dándole a conocer los cambios a realizar.</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
                         </form>
                     </div>

@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             //$table->string('role')->default('user');
             $table->string('notes')->nullable();
             $table->dateTime('last_login')->nullable();
+            $table->integer('count_login')->default(0);
             $table->string('ip_register');
 
             $table->rememberToken();
