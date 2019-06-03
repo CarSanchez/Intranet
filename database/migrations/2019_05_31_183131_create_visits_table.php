@@ -18,7 +18,7 @@ class CreateVisitsTable extends Migration
 
             $table->string('ip', 20)->unique();
             $table->integer('hits')->default(0);
-            $table->date('visit_date');
+            $table->dateTime('visit_date');
 
             $table->timestamps();
         });
