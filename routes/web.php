@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('principal.index');
-})->name('index');
+/**
+ * Route of the index
+*/
+Route::get('/', 'VisitController@index')->name('index');
 
 
 /**
