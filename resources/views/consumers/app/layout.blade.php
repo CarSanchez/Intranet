@@ -29,9 +29,9 @@
 
 <nav class="navbar sticky-top navbar-dark bg-success navbar-expand-md">
     <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="{{ route('admin') }}" id="log">
+        <a class="navbar-brand d-flex align-items-center" href="{{ route('sas') }}" id="log">
             <img src="{{ asset('img/nav/log-white.png') }}" width="250" height="70" class="d-inline-block align-top">
-            @if(Route::is('admin'))
+            @if(Route::is('sas'))
                 <button class="btn btn-success" id="menu-toggle"><span class="navbar-toggler-icon"></span></button>
             @endif
         </a>
@@ -130,25 +130,25 @@
     </div>
 @endif--}}
 -->
-@if(Route::is('admin'))
+@if(Route::is('sas'))
     @if(auth()->user()->role->role == 'sa' && auth()->user()->department->name == 'Sistemas')
         <div class="d-flex" id="wrapper">
             <!-- Sidebar -->
             <div class="bg-light border-right" id="sidebar-wrapper">
                 <div class="sidebar-heading">Panel de control</div>
                 <nav class="list-group list-group-flush nav nav-pills nav-fill" id="nav-tab" role="tablist">
-                    <a class="list-group-item list-group-item-action nav-item nav-link" id="nav-users-tab" data-toggle="tab" href="#nav-users" role="tab" aria-controls="nav-users" aria-selected="true">Usuarios</a>
+                    <a class="list-group-item list-group-item-action nav-item nav-link active" id="nav-index-tab" data-toggle="tab" href="#nav-index" role="tab" aria-controls="nav-index" aria-selected="true">Inicio</a>
                     <a class="list-group-item list-group-item-action nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Datos Personales</a>
-                    <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
-                    <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
-                    <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
-                    <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
-                    <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+                    <a class="list-group-item list-group-item-action bg-light">Shortcuts</a>
+                    <a class="list-group-item list-group-item-action bg-light">Overview</a>
+                    <a class="list-group-item list-group-item-action bg-light">Events</a>
+                    <a class="list-group-item list-group-item-action bg-light">Profile</a>
+                    <a class="list-group-item list-group-item-action bg-light">Status</a>
                 </nav>
             </div>
             <!-- /#sidebar-wrapper -->
 
-            @yield('content')
+            @yield('content-sas')
         </div>
         <!-- /#wrapper -->
     @elseif(auth()->user()->role->role == 'admin' && auth()->user()->department->name == 'Comunicación')

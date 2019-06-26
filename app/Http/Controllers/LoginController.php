@@ -55,23 +55,47 @@ class LoginController extends Controller
 
         $userdb = $this->user->where('user', $validates['user'])->first();
 
-        if (isset($userdb->user)){  /* Comprueba si existe el usuario */
-            if ($userdb->active){   /* Comprueba si esta activo el usuario existente */
-                if (Auth::attempt($validates)){ /* Hace la acción de logueo y redirige a vista de admin*/
-                    return redirect()->route('admin');
+        if (isset($userdb->user))  /* Comprueba si existe el usuario */
+        {
+            if ($userdb->active) /* Comprueba si esta activo el usuario existente */
+            {
+                if (Auth::attempt($validates)) /* Comprueba si las credenciales son validas */
+                {
+                    switch (Auth::user()->role->role)
+                    {
+                        case 'sa':
+                            return redirect()->route('sas');
+                            break;
+                        case 'admin':
+                            //return dd('admin');
+                            return redirect()->route('profile.index');
+                            break;
+                        case 'user':
+                            //return dd('user');
+                            return redirect()->route('profile.index');
+                            break;
+                        case 'inv':
+                            return dd('inv');
+                            break;
+                        default :
+                            return redirect()->route('sas');
+                            break;
+                    }
                 }
-                else{
-                    return redirect()->route('auth.index')
+                else
+                {
+                    return redirect()->back()
                         ->withErrors(['user' => 'Usuario o contraseña incorrecto'])->withInput();
                 }
             }
-            else{
-                return redirect()->route('auth.index')
+            else {
+                return redirect()->back()
                     ->withErrors(['user' => 'Tu usuario no está activo, contacta al administrador'])->withInput();
             }
         }
-        else{
-            return redirect()->route('auth.index')
+        else
+        {
+            return redirect()->back()
                 ->withErrors(['user' => 'Tu usuario no existe, registrate ó contacta al administrador.'])->withInput();
         }
     }

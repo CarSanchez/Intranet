@@ -45,8 +45,10 @@ Route::prefix('dashboard')->group(function() {
         /**
          * Routes of admin
          */
-        Route::prefix('admin')->group(function () {
-            Route::get('/', 'UserController@showAdmin')->name('admin');
+        Route::prefix('sas')->group(function () {
+            Route::group(['middleware' => 'auth'], function () {
+                Route::get('/', 'UserController@showSa')->name('sas');
+            });
         });
 
         /**

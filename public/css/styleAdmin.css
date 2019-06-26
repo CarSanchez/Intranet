@@ -74,3 +74,10 @@
     font-size: 16px;
 }
 
+/* Custom */
+.color-principal, .panel-default > .panel-heading{
+    background-color: green !important;
+    border-color: #eb6f31 !important;
+    color: #ffffff !important;
+}
+
