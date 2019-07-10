@@ -67,15 +67,15 @@ class LoginController extends Controller
                             return redirect()->route('sas');
                             break;
                         case 'admin':
-                            //return dd('admin');
-                            return redirect()->route('profile.index');
+                            return redirect()->route('admins');
                             break;
                         case 'user':
                             //return dd('user');
                             return redirect()->route('profile.index');
                             break;
                         case 'inv':
-                            return dd('inv');
+                            /*return dd('inv');*/
+                            return redirect()->route('profile.index');
                             break;
                         default :
                             return redirect()->route('sas');

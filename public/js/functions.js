@@ -1,4 +1,4 @@
-/* Function of no back button all views */
+/* Function of no back button invdenied views */
 window.onload = function() {
     window.location.hash="no-back-button";
     window.location.hash="Again-No-back-button"; //chrome

@@ -208,6 +208,18 @@ class UserController extends Controller
     }
 
     /**
+     * Show view index of the admin.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showAdmin()
+    {
+        return view('consumers.admins.index');
+    }
+
+
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

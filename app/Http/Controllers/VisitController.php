@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-Use App\Models\visit;
+Use App\Models\Visit;
 Use Illuminate\Http\Request;
 Use DateTime;
 
@@ -12,7 +12,7 @@ class VisitController extends Controller
     protected $request;
     protected $visit;
 
-    public function __construct(Request $request, visit $visit)
+    public function __construct(Request $request, Visit $visit)
     {
         $this->request = $request;
         $this->visit = $visit;

@@ -16,7 +16,7 @@ class sa
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->role != 'sa'){
+        if (Auth::user()->role->role != 'sa'){
             return redirect()->back()->with('flash', 'No tienes privilegios para está acción.');
         }
 

@@ -2,7 +2,7 @@
 
 @section('title', 'Intranet Update Img')
 
-@section('content')
+@section('content-update-img')
     <div class="back_up" style="background: gray;"></div>
     <div class="container pos_up mb-5" style="border-style: solid; border-color: gray;">
         <div class="py-5 text-center">
@@ -15,8 +15,8 @@
                     <img style="width: 15rem; height: 15rem; border-radius: 10rem;" src="{{ asset(auth()->user()->route_img) }}" id="img-upload">
                 </div>
             @endif
-            <h2>¡Hola {{ auth()->user()->name }}!</h2>
-            <p class="lead">Te mostramos la imagen de tu perfil que quieres cambiar</p>
+            {{--<h2>¡Hola {{ auth()->user()->name }}!</h2>--}}
+            <h2>Te mostramos la imagen de tu perfil que quieres cambiar</h2>
         </div>
 
         <div class="row d-flex justify-content-center">

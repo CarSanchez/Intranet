@@ -43,29 +43,51 @@ Route::group(['middleware' => ['web']], function () {
 Route::prefix('dashboard')->group(function() {
     Route::group(['middleware' => 'auth'], function (){
         /**
-         * Routes of admin
+         * Routes of sa
          */
         Route::prefix('sas')->group(function () {
-            Route::group(['middleware' => 'auth'], function () {
+            Route::group(['middleware' => 'sa'], function () {
                 Route::get('/', 'UserController@showSa')->name('sas');
             });
         });
 
         /**
+         * Routes of admin
+         */
+        Route::prefix('admins')->group(function () {
+            Route::group(['middleware' => 'admin'], function () {
+                Route::get('/', 'UserController@showAdmin')->name('admins');
+            });
+        });
+
+        /**
+         * Routes of user
+         */
+
+
+        /**
+         * Routes of inv
+         */
+
+
+        /**
          * Routes of the profile of user
         */
         Route::prefix('profile')->group(function() {
-            /** Route index of profile **/
-            Route::get('/', 'UserController@index')->name('profile.index');
+            Route::group(['middleware' => ['inv_denied']], function () {
 
-            /** Routes for change the image **/
-            Route::prefix('updateImage')->group(function () {
-                Route::get('/', 'UserController@showIndexUpdateImage')->name('changeImage.show');
-                Route::put('/', 'UserController@updateImage')->name('changeImage.update');
+                /** Route index of profile **/
+                Route::get('/', 'UserController@index')->name('profile.index');
+
+                /** Routes for change the image **/
+                Route::prefix('updateImage')->group(function () {
+                    Route::get('/', 'UserController@showIndexUpdateImage')->name('changeImage.show');
+                    Route::put('/', 'UserController@updateImage')->name('changeImage.update');
+                });
+
+                /** Route for change the dates of the user **/
+                Route::put('/update', 'UserController@update')->name('dates.update');
             });
-
-            /** Route for change the dates of the user **/
-            Route::put('/update', 'UserController@update')->name('dates.update');
         });
     });
 });

@@ -5,7 +5,7 @@
 @section('content-sas')
     <div class="tab-content" id="nav-tabContent">
 
-        <div class="tab-pane fade active show mt-5 ml-5" id="nav-index" role="tabpanel" aria-labelledby="nav-index-tab">
+        <div class="tab-pane fade active show mt-5 ml-5" id="nav-sa-index" role="tabpanel" aria-labelledby="nav-sa-index-tab">
 
             <div class="container">
                 <div class="row">
@@ -53,8 +53,8 @@
 
         </div>
 
-        <div class="tab-pane fade show" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-            <h1>Hola mundo2</h1>
+        <div class="tab-pane fade show" id="nav-sa-profile" role="tabpanel" aria-labelledby="nav-sa-profile-tab">
+            <h1>Datos Personales</h1>
         </div>
 
     </div>

@@ -2,7 +2,7 @@
 
 @section('title', 'Intranet Perfil')
 
-@section('content')
+@section('content-profile')
     <div class="back" style="background: url('{{ asset('img/profile_page/fondo.jpg') }}');"></div>
     <div class="container pos">
         <div class="py-5 text-center">
@@ -210,15 +210,15 @@
                                 </div>
                             @endif
 
-                                @if(auth()->user()->role->role != 'sa')
-                                    <div>
-                                        <div class="row  mt-5">
-                                            <div class="col" style="color:red;">
-                                                <h5>Nota: Si alguno de los datos laborales no es correcto favor de contactar al departamento de sistemas dándole a conocer los cambios a realizar.</h5>
-                                            </div>
+                            @if(auth()->user()->role->role != 'sa')
+                                <div>
+                                    <div class="row  mt-5">
+                                        <div class="col" style="color:red;">
+                                            <h5>Nota: Si alguno de los datos laborales no es correcto favor de contactar al departamento de sistemas dándole a conocer los cambios a realizar.</h5>
                                         </div>
                                     </div>
-                                @endif
+                                </div>
+                            @endif
                             </div>
                         </form>
                     </div>

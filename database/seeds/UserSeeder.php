@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('Intr@net19'),
             'active' => true,
             'role_id' => 1,
-            'notes' => 'This user is the super administrator with all permissions',
+            'notes' => 'This user is the super administrator with invdenied permissions',
             /*'remember_token' => Str::random(10),*/
             'ip_register' => $request->ip(),
         ]);

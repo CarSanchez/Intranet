@@ -16,7 +16,7 @@ class admin
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->role != 'admin'){
+        if (Auth::user()->role->role != 'admin'){
             return redirect()->back()->with('flash', 'No tienes privilegios para está acción.');
         }
 

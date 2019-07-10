@@ -30,11 +30,11 @@
                     </li>
                     @auth
                         <li class="nav-item">
-                            @if(auth()->user()->role == 'sa')
+                            @if(auth()->user()->role->role == 'sa')
                                 <a class="nav-link" href="{{ route('sas') }}">{{ auth()->user()->name }}</a>
-                            @elseif(auth()->user()->role == 'admin')
+                            @elseif(auth()->user()->role->role == 'admin')
                                 <a class="nav-link" href="{{ route('sas') }}">{{ auth()->user()->name }}</a>
-                            @elseif(auth()->user()->role == 'user')
+                            @elseif(auth()->user()->role->role == 'user')
                                 <a class="nav-link" href="{{ route('sas') }}">{{ auth()->user()->name }}</a>
                             @else
                                 <a class="nav-link" href="{{ route('sas') }}">{{ auth()->user()->name }}</a>
