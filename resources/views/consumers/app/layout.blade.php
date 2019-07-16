@@ -13,7 +13,7 @@
 
     <!-- Estilos -->
     <link rel="stylesheet" href="{{ asset('css/styleAdmin.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/styleUpdateImage') }}">
+    <link rel="stylesheet" href="{{ asset('css/styleUpdateImage.css') }}">
 
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/simple-sidebar.css') }}" rel="stylesheet">
@@ -29,15 +29,26 @@
 
 <nav class="navbar sticky-top navbar-dark bg-success navbar-expand-md">
     <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="{{ (auth()->user()->role->role == 'sa') ? route('sas') : (auth()->user()->role->role == 'admin') ? route('admins') : '' }}" id="log">
-            <img src="{{ asset('img/nav/log-white.png') }}" width="250" height="70" class="d-inline-block align-top">
-            <h1>{{ auth()->user()->role->role }}</h1>
-            @if(Route::is('sas'))
-                <button class="btn btn-success" id="menu-toggle"><span class="navbar-toggler-icon"></span></button>
-            @elseif(Route::is('admins'))
-                <button class="btn btn-success" id="menu-toggle"><span class="navbar-toggler-icon"></span></button>
-            @endif
-        </a>
+        @switch(auth()->user()->role->role)
+            @case('sa')
+                <a class="navbar-brand d-flex align-items-center" href="{{ route('sas') }}" id="log">
+                    <img src="{{ asset('img/nav/log-white.png') }}" width="250" height="70" class="d-inline-block align-top">
+                    <h1>{{ auth()->user()->role->role }}</h1>
+                    @if(Route::class != Route::is('profile.index') && Route::class != Route::is('changeImage.show'))
+                        <a class="btn btn-success" id="menu-toggle" onclick="toggle()"><span class="navbar-toggler-icon"></span></a>
+                    @endif
+                </a>
+            @break
+            @case('admin')
+                <a class="navbar-brand d-flex align-items-center" href="{{ route('admins') }}" id="log">
+                    <img src="{{ asset('img/nav/log-white.png') }}" width="250" height="70" class="d-inline-block align-top">
+                    <h1>{{ auth()->user()->role->role }}</h1>
+                    @if(Route::class != Route::is('profile.index') && Route::class != Route::is('changeImage.show'))
+                        <a class="btn btn-success" id="menu-toggle" onclick="toggle()"><span class="navbar-toggler-icon"></span></a>
+                    @endif
+                </a>
+            @break
+        @endswitch
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapseNavbar" aria-controls="collapseNavbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -133,67 +144,48 @@
     </div>
 @endif--}}
 -->
-{{--@if(Route::class != Route::is('profile.index'))--}}
-@switch(Route::class && auth()->user()->role->role)
-    @case(Route::is('sas') && 'sa')
-        <div class="d-flex" id="wrapper">
-            <!-- Sidebar -->
-            <div class="bg-light border-right" id="sidebar-wrapper">
-                <div class="sidebar-heading">Panel de control SA</div>
-                <nav class="list-group list-group-flush nav nav-pills nav-fill" id="nav-tab" role="tablist">
-                    <a class="list-group-item list-group-item-action nav-item nav-link active" id="nav-sa-index-tab" data-toggle="tab" href="#nav-sa-index" role="tab" aria-controls="nav-sa-index" aria-selected="true">Inicio</a>
-                    <a class="list-group-item list-group-item-action nav-item nav-link" id="nav-sa-profile-tab" data-toggle="tab" href="#nav-sa-profile" role="tab" aria-controls="nav-sa-profile" aria-selected="false">Datos Personales</a>
-                    <a class="list-group-item list-group-item-action bg-light">Shortcuts</a>
-                    <a class="list-group-item list-group-item-action bg-light">Overview</a>
-                    <a class="list-group-item list-group-item-action bg-light">Events</a>
-                    <a class="list-group-item list-group-item-action bg-light">Profile</a>
-                    <a class="list-group-item list-group-item-action bg-light">Status</a>
-                </nav>
-            </div>
 
-            <!-- /#sidebar-wrapper -->
-            @yield('content-sas')
+@if(Route::class == Route::is('sas') && auth()->user()->role->role == 'sa')
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div class="bg-light border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading">Panel de control SA</div>
+            <nav class="list-group list-group-flush nav nav-pills nav-fill" id="nav-tab" role="tablist">
+                <a class="list-group-item list-group-item-action nav-item nav-link active" id="nav-sa-index-tab" data-toggle="tab" href="#nav-sa-index" role="tab" aria-controls="nav-sa-index" aria-selected="true">Inicio</a>
+                <a class="list-group-item list-group-item-action nav-item nav-link" id="nav-sa-visits-tab" data-toggle="tab" href="#nav-sa-visits" role="tab" aria-controls="nav-sa-visits" aria-selected="false">Visitantes</a>
+                <a class="list-group-item list-group-item-action bg-light">Shortcuts</a>
+                <a class="list-group-item list-group-item-action bg-light">Overview</a>
+                <a class="list-group-item list-group-item-action bg-light">Events</a>
+                <a class="list-group-item list-group-item-action bg-light">Profile</a>
+                <a class="list-group-item list-group-item-action bg-light">Status</a>
+            </nav>
         </div>
-        <!-- /#wrapper -->
-    @break
 
-    @case(Route::is('admins') && 'admin')
-        <div class="d-flex" id="wrapper">
-            <!-- Sidebar -->
-            <div class="bg-light border-right" id="sidebar-wrapper">
-                <div class="sidebar-heading">Panel de control admin</div>
-                <nav class="list-group list-group-flush nav nav-pills nav-fill" id="nav-tab" role="tablist">
-                    <a class="list-group-item list-group-item-action nav-item nav-link active" id="nav-admin-index-tab" data-toggle="tab" href="#nav-admin-index" role="tab" aria-controls="nav-admin-index" aria-selected="true">Inicio</a>
-                    <a class="list-group-item list-group-item-action nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Principal</a>
-                    <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
-                </nav>
-            </div>
-
-            <!-- /#sidebar-wrapper -->
-            @yield('content-admin')
+        <!-- /#sidebar-wrapper -->
+        @yield('content-sas')
+    </div>
+    <!-- /#wrapper -->
+@elseif(Route::class == Route::is('admins') && auth()->user()->role->role == 'admin' || auth()->user()->role->role == 'sa')
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div class="bg-light border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading">Panel de control admin</div>
+            <nav class="list-group list-group-flush nav nav-pills nav-fill" id="nav-tab" role="tablist">
+                <a class="list-group-item list-group-item-action nav-item nav-link active" id="nav-admin-index-tab" data-toggle="tab" href="#nav-admin-index" role="tab" aria-controls="nav-admin-index" aria-selected="true">Inicio</a>
+                <a class="list-group-item list-group-item-action nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Principal</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
+            </nav>
         </div>
-        <!-- /#wrapper -->
-    @break
 
-    @case(Route::is('profile.index') && 'sa' || 'admin' || 'user')
-        @yield('content-profile')
-    @break
-
-    @case(Route::is('changeImage.show') && 'sa')
-        @yield('content-update-img')
-    @break
-@endswitch
-
-@yield('content-update-img')
-{{--@if(Route::is('sas') && auth()->user()->role->role == 'sa' /*&& auth()->user()->department->name == 'Sistemas'*/)
-
-@elseif(Route::is('admins') && auth()->user()->role->role == 'admin' /*&& auth()->user()->department->name == 'Comunicación'*/)
-
---}}{{--    @endif--}}{{--
-@elseif(Route::is('changeImage.show') && auth()->user()->role->role != 'inv')
-@elseif(Route::is('profile.index') && auth()->user()->role->role != 'inv')
-
-@endif--}}
+        <!-- /#sidebar-wrapper -->
+        @yield('content-admin')
+    </div>
+    <!-- /#wrapper -->
+@elseif(Route::class == Route::is('profile.index') && auth()->user()->role->role != 'inv')
+    @yield('content-profile')
+@elseif(Route::class == Route::is('changeImage.show') && auth()->user()->role->role != 'inv')
+    @yield('content-update-img')
+@endif
 
 
 <!-- JavaScript -->

@@ -194,21 +194,24 @@
                                 </div>
 
 
-                            @if(auth()->user()->role->role == 'sa')
-                                <div class="form-row d-flex justify-content-center mt-5">
-                                    <a class="btn btn-dark btn-lg col-md-4 mr-3 ml-3 mb-3" id="re" style="display: inline" href="{{ route('sas') }}" >Regresar</a>
-                                    <a class="btn btn-dark btn-lg col-md-4 mr-3 ml-3 mb-3" id="ca" style="display: none; color: white;" onclick="ocultarActualizarsa()">Cancelar</a>
-                                    <a class="btn btn-primary btn-lg col-md-4 mr-3 ml-3 mb-3" id="ed" style="display: inline; color: white;" onclick="mostrarActualizarsa()">Editar</a>
-                                    <button class="btn btn-primary btn-lg col-md-4 mr-3 ml-3 mb-3" id="up" style="display: none">Actualizar</button>
-                                </div>
-                            @else
-                                <div class="form-row d-flex justify-content-center mt-5">
-                                    <a class="btn btn-dark btn-lg col-md-4 mr-3 ml-3 mb-3" id="re" style="display: inline" href="{{ route('sas') }}" >Regresar</a>
-                                    <a class="btn btn-dark btn-lg col-md-4 mr-3 ml-3 mb-3" id="ca" style="display: none; color: white;" onclick="ocultarActualizar()">Cancelar</a>
-                                    <a class="btn btn-primary btn-lg col-md-4 mr-3 ml-3 mb-3" id="ed" style="display: inline; color: white;" onclick="mostrarActualizar()">Editar</a>
-                                    <button class="btn btn-primary btn-lg col-md-4 mr-3 ml-3 mb-3" id="up" style="display: none">Actualizar</button>
-                                </div>
-                            @endif
+                            @switch(auth()->user()->role->role)
+                                @case('sa')
+                                    <div class="form-row d-flex justify-content-center mt-5">
+                                        <a class="btn btn-dark btn-lg col-md-4 mr-3 ml-3 mb-3" id="re" style="display: inline" href="{{ route('sas') }}" >Regresar</a>
+                                        <a class="btn btn-dark btn-lg col-md-4 mr-3 ml-3 mb-3" id="ca" style="display: none; color: white;" onclick="ocultarActualizarsa()">Cancelar</a>
+                                        <a class="btn btn-primary btn-lg col-md-4 mr-3 ml-3 mb-3" id="ed" style="display: inline; color: white;" onclick="mostrarActualizarsa()">Editar</a>
+                                        <button class="btn btn-primary btn-lg col-md-4 mr-3 ml-3 mb-3" id="up" style="display: none">Actualizar</button>
+                                    </div>
+                                @break
+                                @case('admin')
+                                    <div class="form-row d-flex justify-content-center mt-5">
+                                        <a class="btn btn-dark btn-lg col-md-4 mr-3 ml-3 mb-3" id="re" style="display: inline" href="{{ route('admins') }}" >Regresar</a>
+                                        <a class="btn btn-dark btn-lg col-md-4 mr-3 ml-3 mb-3" id="ca" style="display: none; color: white;" onclick="ocultarActualizar()">Cancelar</a>
+                                        <a class="btn btn-primary btn-lg col-md-4 mr-3 ml-3 mb-3" id="ed" style="display: inline; color: white;" onclick="mostrarActualizar()">Editar</a>
+                                        <button class="btn btn-primary btn-lg col-md-4 mr-3 ml-3 mb-3" id="up" style="display: none">Actualizar</button>
+                                    </div>
+                                @break
+                            @endswitch
 
                             @if(auth()->user()->role->role != 'sa')
                                 <div>

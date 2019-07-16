@@ -12,10 +12,13 @@ window.onload = function() {
 };
 
 <!-- Menu Toggle Script of the view principal admin or user view after login -->
-$("#menu-toggle").click(function(e) {
+/*$("#menu-toggle").click(function(e) {
     e.preventDefault();
     $("#wrapper").toggleClass("toggled");
-});
+});*/
+function toggle(){
+    $("#wrapper").toggleClass("toggled");
+}
 
 
 /**

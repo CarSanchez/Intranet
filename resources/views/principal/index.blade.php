@@ -30,23 +30,28 @@
                     </li>
                     @auth
                         <li class="nav-item">
-                            @if(auth()->user()->role->role == 'sa')
-                                <a class="nav-link" href="{{ route('sas') }}">{{ auth()->user()->name }}</a>
-                            @elseif(auth()->user()->role->role == 'admin')
-                                <a class="nav-link" href="{{ route('sas') }}">{{ auth()->user()->name }}</a>
-                            @elseif(auth()->user()->role->role == 'user')
-                                <a class="nav-link" href="{{ route('sas') }}">{{ auth()->user()->name }}</a>
-                            @else
-                                <a class="nav-link" href="{{ route('sas') }}">{{ auth()->user()->name }}</a>
-                            @endif
+                            @switch(auth()->user()->role->role)
+                                @case('sa')
+                                    <a class="nav-link" href="{{ route('sas') }}">{{ auth()->user()->name }}</a>
+                                @break
+                                @case('admin')
+                                    <a class="nav-link" href="{{ route('admins') }}">{{ auth()->user()->name }}</a>
+                                @break
+                                @case('user')
+                                    <a class="nav-link" href="{{ route('sas') }}">{{ auth()->user()->name }}</a>
+                                @break
+                                @default
+                                    <a class="nav-link" href="{{ route('sas') }}">{{ auth()->user()->name }}</a>
+                                @break
+                            @endswitch
                         </li>
                     @else
-                        {{--<li class="nav-item">
-                            <a class="nav-link" href='{{ route('auth.index') }}'>login /</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href='{{ route('auth.index') }}'>Inicio sesión /</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('register.index') }}">Registro</a>
-                        </li>--}}
+                        </li>
                     @endauth
                 </ul>
                 <div class="d-flex flex-row justify-content-center">
@@ -92,8 +97,8 @@
                     </button>
                 </div>
                 <div class="modal-body text-center">
-                    <!--<embed src="{{ asset('documents/directorio.pdf') }}" frameborder="0" width="100%" height="400px">-->
-                    <h1>¡PROXIMAMENTE!</h1>
+                    <embed src="{{ asset('documents/directorio.pdf') }}" frameborder="0" width="100%" height="400px">
+                    {{--<h1>¡PROXIMAMENTE!</h1>--}}
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>

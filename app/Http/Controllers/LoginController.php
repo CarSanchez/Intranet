@@ -70,11 +70,9 @@ class LoginController extends Controller
                             return redirect()->route('admins');
                             break;
                         case 'user':
-                            //return dd('user');
                             return redirect()->route('profile.index');
                             break;
                         case 'inv':
-                            /*return dd('inv');*/
                             return redirect()->route('profile.index');
                             break;
                         default :

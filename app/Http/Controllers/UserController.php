@@ -10,6 +10,7 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Visit;
 
 class UserController extends Controller
 {
@@ -20,11 +21,12 @@ class UserController extends Controller
     protected $user;
     protected $department;
     protected $role;
+    protected $visit;
 
     /**
      * Method construct
     */
-    public function __construct(Request $request, User $user, Department $department, Role $role)
+    public function __construct(Request $request, User $user, Department $department, Role $role, Visit $visit)
     {
         /*$this->middleware('auth');*/ /* <- aplica el middleware para todo el controlador */
 
@@ -36,6 +38,7 @@ class UserController extends Controller
         $this->user = $user;
         $this->department = $department;
         $this->role = $role;
+        $this->visit = $visit;
     }
 
     /**
@@ -204,7 +207,12 @@ class UserController extends Controller
      */
     public function showSa()
     {
-        return view('consumers.sas.index');
+        $visits = $this->visit::all();
+
+        for ($i = 0; $i < $visits->count(); $i++)
+            $hits = $visits[$i]->hits;
+
+        return view('consumers.sas.index', compact('visits', 'hits'));
     }
 
     /**
